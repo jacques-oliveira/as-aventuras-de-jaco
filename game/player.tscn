@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pvgqvdmdmbub"]
+[gd_scene load_steps=30 format=3 uid="uid://pvgqvdmdmbub"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_nxjp1"]
 [ext_resource type="Texture2D" uid="uid://u8dqtvq5o6he" path="res://player/walk_down0009.png" id="1_txj3f"]
@@ -123,9 +123,13 @@ height = 192.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ft7u"]
 radius = 17.1034
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r73vb"]
+radius = 205.572
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(209, 248)
 scale = Vector2(0.5, 0.5)
+collision_layer = 3
 script = ExtResource("1_nxjp1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -145,4 +149,10 @@ shape = SubResource("CapsuleShape2D_xj741")
 scale = Vector2(15.2329, -12.7985)
 shape = SubResource("CircleShape2D_2ft7u")
 
+[node name="health_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="health_detector"]
+shape = SubResource("CircleShape2D_r73vb")
+
 [connection signal="area_entered" from="portal_detector" to="." method="_on_portal_detector_area_entered"]
+[connection signal="area_entered" from="health_detector" to="." method="_on_health_detector_area_entered"]
