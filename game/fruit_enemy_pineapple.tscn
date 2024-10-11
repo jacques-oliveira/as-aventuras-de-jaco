@@ -47,35 +47,47 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_em0f6"]
-radius = 73.0
-height = 146.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8sjp"]
+radius = 440.328
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8i8kc"]
-radius = 21.0
-height = 66.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbvg6"]
+radius = 74.0
+height = 150.0
 
-[node name="fruit-enemy-pineapple" type="CharacterBody2D"]
+[node name="fruit-enemy-pineapple" type="RigidBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
+mass = 0.001
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_bjjgp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_oode1")
 animation = &"idle"
 frame_progress = 0.971815
 offset = Vector2(0, -112.905)
 
 [node name="detection_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-position = Vector2(-1, -66)
+position = Vector2(-2, -88)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_em0f6")
+shape = SubResource("CircleShape2D_e8sjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+visible = false
+z_index = 1
+position = Vector2(0, -89)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_8i8kc")
+shape = SubResource("CapsuleShape2D_sbvg6")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
