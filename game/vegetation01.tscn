@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqkcj2kbf2ql3"]
+
+[ext_resource type="Texture2D" uid="uid://b5b5hei8l4l1r" path="res://textures/level01_island/vegetation01.png" id="1_ay1d6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xktj"]
+radius = 56.0
+height = 202.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ay1d6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 30)
+shape = SubResource("CapsuleShape2D_5xktj")
