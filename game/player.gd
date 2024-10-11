@@ -46,5 +46,6 @@ func teleporte(area:Area2D) -> void:
 func _on_portal_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Portal"):
 		if(!area.portal_is_locked):
+			area.portalSound.play()
 			teleporte(area)
 	
