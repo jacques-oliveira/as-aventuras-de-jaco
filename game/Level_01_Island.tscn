@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bve6ef2d5uxyl"]
+[gd_scene load_steps=36 format=3 uid="uid://bve6ef2d5uxyl"]
 
 [ext_resource type="Texture2D" uid="uid://ded3jhimygqhv" path="res://textures/level01_island/forest.png" id="1_um3hj"]
 [ext_resource type="PackedScene" uid="uid://pvgqvdmdmbub" path="res://player.tscn" id="2_ve5sw"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://didioj1f4op00" path="res://textures/portal/portal-roxo0006.png" id="27_qqrus"]
 [ext_resource type="Texture2D" uid="uid://plaunmsu7y4w" path="res://textures/portal/portal-roxo0007.png" id="28_qaglg"]
 [ext_resource type="Texture2D" uid="uid://2rlgylhtl7xj" path="res://textures/portal/portal-roxo0008.png" id="29_r8pqj"]
+[ext_resource type="PackedScene" uid="uid://cntvy2x3iin6x" path="res://fruit_enemy_pineapple.tscn" id="30_gjff8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hixir"]
 texture = ExtResource("1_um3hj")
@@ -559,68 +560,81 @@ stream = ExtResource("4_mm08s")
 autoplay = true
 attenuation = 0.14865
 
-[node name="portal" parent="." instance=ExtResource("5_oki10")]
+[node name="portals" type="Node2D" parent="."]
+
+[node name="portal" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(-68, -1158)
 
-[node name="portal2" parent="." instance=ExtResource("5_oki10")]
+[node name="portal2" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(-292, -32)
 
-[node name="portal3" parent="." instance=ExtResource("5_oki10")]
+[node name="portal3" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(374, -28)
 id = 1
 
-[node name="AnimatedSprite2D" parent="portal3" index="1"]
+[node name="AnimatedSprite2D" parent="portals/portal3" index="1"]
 modulate = Color(1, 1, 0.427451, 1)
 self_modulate = Color(0.921569, 1, 0.313726, 1)
 sprite_frames = SubResource("SpriteFrames_q611g")
 frame_progress = 0.0
 
-[node name="portal4" parent="." instance=ExtResource("5_oki10")]
+[node name="portal4" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(1570, 68)
 id = 1
 
-[node name="AnimatedSprite2D" parent="portal4" index="1"]
+[node name="AnimatedSprite2D" parent="portals/portal4" index="1"]
 modulate = Color(1, 1, 0.427451, 1)
 self_modulate = Color(0.921569, 1, 0.313726, 1)
 sprite_frames = SubResource("SpriteFrames_q611g")
 frame_progress = 0.0
 
-[node name="portal5" parent="." instance=ExtResource("5_oki10")]
+[node name="portal5" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(-590, 1128)
 id = 2
 
-[node name="AnimatedSprite2D" parent="portal5" index="1"]
+[node name="AnimatedSprite2D" parent="portals/portal5" index="1"]
 sprite_frames = SubResource("SpriteFrames_5lk8v")
 frame_progress = 0.0
 
-[node name="portal6" parent="." instance=ExtResource("5_oki10")]
+[node name="portal6" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(492, -1247)
 id = 2
 
-[node name="AnimatedSprite2D" parent="portal6" index="1"]
+[node name="AnimatedSprite2D" parent="portals/portal6" index="1"]
 sprite_frames = SubResource("SpriteFrames_5lk8v")
 frame_progress = 0.0
 
-[node name="portal7" parent="." instance=ExtResource("5_oki10")]
+[node name="portal7" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(1508, -1239)
 id = 3
 
-[node name="AnimatedSprite2D" parent="portal7" index="1"]
+[node name="AnimatedSprite2D" parent="portals/portal7" index="1"]
 sprite_frames = SubResource("SpriteFrames_31glt")
 frame_progress = 0.0
 
-[node name="portal8" parent="." instance=ExtResource("5_oki10")]
+[node name="portal8" parent="portals" instance=ExtResource("5_oki10")]
 position = Vector2(-852, -35)
 id = 3
 
-[node name="AnimatedSprite2D" parent="portal8" index="1"]
+[node name="AnimatedSprite2D" parent="portals/portal8" index="1"]
 sprite_frames = SubResource("SpriteFrames_31glt")
 frame_progress = 0.0
 
-[editable path="portal2"]
-[editable path="portal3"]
-[editable path="portal4"]
-[editable path="portal5"]
-[editable path="portal6"]
-[editable path="portal7"]
-[editable path="portal8"]
+[node name="fruit-enemy-pineapple" parent="." instance=ExtResource("30_gjff8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(274, 1190)
+scale = Vector2(-1, 1)
+
+[node name="fruit-enemy-pineapple2" parent="." instance=ExtResource("30_gjff8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(606, 655)
+
+[editable path="portals/portal2"]
+[editable path="portals/portal3"]
+[editable path="portals/portal4"]
+[editable path="portals/portal5"]
+[editable path="portals/portal6"]
+[editable path="portals/portal7"]
+[editable path="portals/portal8"]
