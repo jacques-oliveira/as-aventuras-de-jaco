@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://cntvy2x3iin6x"]
 
 [ext_resource type="Script" path="res://fruit_enemy_pineapple.gd" id="1_bjjgp"]
-[ext_resource type="Texture2D" uid="uid://cl7bby1akstc6" path="res://textures/enemys/frame0000.png" id="1_rdaos"]
-[ext_resource type="Texture2D" uid="uid://c05xgmulhj2hh" path="res://textures/enemys/frame0001.png" id="2_b22ps"]
-[ext_resource type="Texture2D" uid="uid://6f2vpw1eylxd" path="res://textures/enemys/frame0002.png" id="3_jfumd"]
-[ext_resource type="Texture2D" uid="uid://dkgwocv3g413w" path="res://textures/enemys/frame0003.png" id="4_l4ljb"]
-[ext_resource type="Texture2D" uid="uid://0hthd4ei4kjv" path="res://textures/enemys/frame0004.png" id="5_tlf77"]
-[ext_resource type="Texture2D" uid="uid://bt74ypl83e8ub" path="res://textures/enemys/frame0005.png" id="6_0bs2h"]
-[ext_resource type="Texture2D" uid="uid://mb6n017bjcd7" path="res://textures/enemys/frame0006.png" id="7_3kwtw"]
-[ext_resource type="Texture2D" uid="uid://c141tojvk8k77" path="res://textures/enemys/frame0007.png" id="8_uo6qr"]
+[ext_resource type="Texture2D" uid="uid://cl7bby1akstc6" path="res://textures/enemys/enemy-orange/frame0000.png" id="1_rdaos"]
+[ext_resource type="Texture2D" uid="uid://c05xgmulhj2hh" path="res://textures/enemys/enemy-orange/frame0001.png" id="2_b22ps"]
+[ext_resource type="Texture2D" uid="uid://6f2vpw1eylxd" path="res://textures/enemys/enemy-orange/frame0002.png" id="3_jfumd"]
+[ext_resource type="Texture2D" uid="uid://dkgwocv3g413w" path="res://textures/enemys/enemy-orange/frame0003.png" id="4_l4ljb"]
+[ext_resource type="Texture2D" uid="uid://0hthd4ei4kjv" path="res://textures/enemys/enemy-orange/frame0004.png" id="5_tlf77"]
+[ext_resource type="Texture2D" uid="uid://bt74ypl83e8ub" path="res://textures/enemys/enemy-orange/frame0005.png" id="6_0bs2h"]
+[ext_resource type="Texture2D" uid="uid://mb6n017bjcd7" path="res://textures/enemys/enemy-orange/frame0006.png" id="7_3kwtw"]
+[ext_resource type="Texture2D" uid="uid://c141tojvk8k77" path="res://textures/enemys/enemy-orange/frame0007.png" id="8_uo6qr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oode1"]
 animations = [{
@@ -59,7 +59,6 @@ radius = 109.179
 
 [node name="fruit-enemy-pineapple" type="RigidBody2D" groups=["enemy"]]
 z_index = 1
-y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 mass = 0.001

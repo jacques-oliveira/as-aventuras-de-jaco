@@ -126,6 +126,21 @@ radius = 219.18
 [sub_resource type="CircleShape2D" id="CircleShape2D_r73vb"]
 radius = 205.572
 
+[sub_resource type="Animation" id="Animation_ym5nd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.313726, 0.298039, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_m3dnf"]
 resource_name = "hurtBlink"
 length = 0.4
@@ -144,21 +159,6 @@ tracks/0/keys = {
 "values": [Color(1, 0.313726, 0.298039, 0.690196), Color(1, 0.313726, 0.298039, 0.690196), Color(1, 0.313726, 0.298039, 0.690196), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ym5nd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.313726, 0.298039, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywccj"]
 _data = {
 "RESET": SubResource("Animation_ym5nd"),
@@ -166,6 +166,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(209, 248)
 scale = Vector2(0.5, 0.5)
 collision_layer = 7
