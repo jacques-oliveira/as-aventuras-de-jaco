@@ -15,4 +15,4 @@ script = ExtResource("1_xqxx7")
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_d54p2")
 centered = false
-hframes = 2
+hframes = 5

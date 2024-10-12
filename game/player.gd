@@ -54,7 +54,7 @@ func _on_portal_detector_area_entered(area: Area2D) -> void:
 	
 func _on_health_detector_area_entered(area: Area2D) -> void:
 	if area.name == "enemy_damage":
-		currentHealth -= 1
+		currentHealth -= 0.25
 		if currentHealth < 0:
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
