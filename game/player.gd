@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
+signal healthChanged
 const SPEED = 325.0
-@export var maxHealth = 3
+@export var maxHealth = 5
 @onready var currentHealth: int = maxHealth
+@onready var effects = $Effects
+
+func _ready() -> void:
+	effects.play("RESET")
 
 func _physics_process(delta):
 
@@ -51,8 +56,12 @@ func _on_portal_detector_area_entered(area: Area2D) -> void:
 			area.portalSound.play()
 			teleporte(area)
 	
-
-
 func _on_health_detector_area_entered(area: Area2D) -> void:
-	currentHealth -= 1
-	print(currentHealth)
+	if area.name == "enemy_damage":
+		currentHealth -= 0.25
+		if currentHealth < 0:
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		effects.play("hurtBlink")
+		await get_tree().create_timer(0.5).timeout
+		effects.play("RESET")

@@ -24,6 +24,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		await get_tree().create_timer(2.5).timeout
+		print("player collision")
+		await get_tree().create_timer(2.0).timeout
 		player = null
 		player_chase = false	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cntvy2x3iin6x"]
+[gd_scene load_steps=14 format=3 uid="uid://cntvy2x3iin6x"]
 
 [ext_resource type="Script" path="res://fruit_enemy_pineapple.gd" id="1_bjjgp"]
 [ext_resource type="Texture2D" uid="uid://cl7bby1akstc6" path="res://textures/enemys/frame0000.png" id="1_rdaos"]
@@ -54,10 +54,13 @@ radius = 440.328
 radius = 74.0
 height = 150.0
 
-[node name="fruit-enemy-pineapple" type="RigidBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hn5en"]
+radius = 109.179
+
+[node name="fruit-enemy-pineapple" type="RigidBody2D" groups=["enemy"]]
 z_index = 1
 y_sort_enabled = true
-collision_layer = 3
+collision_layer = 2
 collision_mask = 3
 mass = 0.001
 gravity_scale = 0.0
@@ -74,8 +77,8 @@ offset = Vector2(0, -112.905)
 
 [node name="detection_area" type="Area2D" parent="."]
 visible = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 position = Vector2(-2, -88)
@@ -88,6 +91,13 @@ z_index = 1
 position = Vector2(0, -89)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sbvg6")
+
+[node name="enemy_damage" type="Area2D" parent="."]
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_damage" groups=["enemy"]]
+position = Vector2(0, -93)
+shape = SubResource("CircleShape2D_hn5en")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
