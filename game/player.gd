@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 325.0
 @export var maxHealth = 5
 @onready var currentHealth: int = maxHealth
+signal healthChanged
 
 func _physics_process(delta):
 
@@ -56,4 +57,4 @@ func _on_health_detector_area_entered(area: Area2D) -> void:
 		currentHealth -= 1
 		if currentHealth < 0:
 			currentHealth = maxHealth
-		print_debug(currentHealth)
+		healthChanged.emit(currentHealth)
