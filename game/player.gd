@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+signal healthChanged
 const SPEED = 325.0
 @export var maxHealth = 5
 @onready var currentHealth: int = maxHealth
-signal healthChanged
+@onready var effects = $Effects
+
+func _ready() -> void:
+	effects.play("RESET")
 
 func _physics_process(delta):
 
@@ -58,3 +62,6 @@ func _on_health_detector_area_entered(area: Area2D) -> void:
 		if currentHealth < 0:
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
+		effects.play("hurtBlink")
+		await get_tree().create_timer(0.5).timeout
+		effects.play("RESET")
