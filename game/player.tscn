@@ -130,6 +130,7 @@ radius = 205.572
 position = Vector2(209, 248)
 scale = Vector2(0.5, 0.5)
 collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_nxjp1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -139,19 +140,21 @@ frame = 7
 frame_progress = 0.576515
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 203)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xj741")
 
 [node name="portal_detector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portal_detector"]
 shape = SubResource("CircleShape2D_m4y12")
 
 [node name="health_detector" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="health_detector"]
-visible = false
 shape = SubResource("CircleShape2D_r73vb")
 
 [connection signal="area_entered" from="portal_detector" to="." method="_on_portal_detector_area_entered"]

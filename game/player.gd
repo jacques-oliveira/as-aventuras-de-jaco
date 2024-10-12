@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 325.0
-@export var maxHealth = 3
+@export var maxHealth = 5
 @onready var currentHealth: int = maxHealth
 
 func _physics_process(delta):
@@ -51,8 +51,9 @@ func _on_portal_detector_area_entered(area: Area2D) -> void:
 			area.portalSound.play()
 			teleporte(area)
 	
-
-
 func _on_health_detector_area_entered(area: Area2D) -> void:
-	currentHealth -= 1
-	print(currentHealth)
+	if area.name == "enemy_damage":
+		currentHealth -= 1
+		if currentHealth < 0:
+			currentHealth = maxHealth
+		print_debug(currentHealth)

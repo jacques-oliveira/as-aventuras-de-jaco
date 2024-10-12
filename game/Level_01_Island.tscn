@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bve6ef2d5uxyl"]
+[gd_scene load_steps=37 format=4 uid="uid://bve6ef2d5uxyl"]
 
 [ext_resource type="Texture2D" uid="uid://ded3jhimygqhv" path="res://textures/level01_island/forest.png" id="1_um3hj"]
 [ext_resource type="PackedScene" uid="uid://pvgqvdmdmbub" path="res://player.tscn" id="2_ve5sw"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://plaunmsu7y4w" path="res://textures/portal/portal-roxo0007.png" id="28_qaglg"]
 [ext_resource type="Texture2D" uid="uid://2rlgylhtl7xj" path="res://textures/portal/portal-roxo0008.png" id="29_r8pqj"]
 [ext_resource type="PackedScene" uid="uid://cntvy2x3iin6x" path="res://fruit_enemy_pineapple.tscn" id="30_6jo6m"]
+[ext_resource type="PackedScene" uid="uid://bn2px13fso85c" path="res://hearts_container.tscn" id="31_0pmui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hixir"]
 texture = ExtResource("1_um3hj")
@@ -563,15 +564,12 @@ position_smoothing_enabled = true
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="fruit-enemy-pineapple" parent="enemies" instance=ExtResource("30_6jo6m")]
-z_as_relative = false
 position = Vector2(479, 698)
 
 [node name="fruit-enemy-pineapple3" parent="enemies" instance=ExtResource("30_6jo6m")]
-z_as_relative = false
 position = Vector2(-478, -730)
 
 [node name="fruit-enemy-pineapple4" parent="enemies" instance=ExtResource("30_6jo6m")]
-z_as_relative = false
 position = Vector2(103, 1219)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_uj0ev")]
@@ -590,6 +588,7 @@ position = Vector2(830, -444)
 stream = ExtResource("4_mm08s")
 autoplay = true
 attenuation = 0.14865
+parameters/looping = true
 
 [node name="portals" type="Node2D" parent="."]
 
@@ -650,6 +649,10 @@ id = 3
 [node name="AnimatedSprite2D" parent="portals/portal8" index="1"]
 sprite_frames = SubResource("SpriteFrames_31glt")
 frame_progress = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("31_0pmui")]
 
 [editable path="portals/portal2"]
 [editable path="portals/portal3"]
