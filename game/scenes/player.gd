@@ -6,6 +6,7 @@ const SPEED = 325.0
 @onready var currentHealth: int = maxHealth
 @onready var effects = $Effects
 var startPosition = Vector2(-522,481)
+signal lostAllHearts
 
 func _ready() -> void:
 	effects.play("RESET")
@@ -60,7 +61,8 @@ func _on_portal_detector_area_entered(area: Area2D) -> void:
 func _on_health_detector_area_entered(area: Area2D) -> void:
 	if area.name == "enemy_damage":
 		currentHealth -= 1
-		if currentHealth < 0:
+		if currentHealth <= 0:
+			emit_signal("lostAllHearts",currentHealth)
 			currentHealth = maxHealth
 			position = startPosition
 		healthChanged.emit(currentHealth)
