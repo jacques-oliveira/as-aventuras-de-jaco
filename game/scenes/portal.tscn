@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dt0lv60uctu8t"]
 
-[ext_resource type="Script" path="res://portal.gd" id="1_ekuoo"]
+[ext_resource type="Script" path="res://scenes/portal.gd" id="1_ekuoo"]
 [ext_resource type="Texture2D" uid="uid://o7p888ma050l" path="res://textures/portal/portal0001.png" id="2_27mfo"]
 [ext_resource type="Texture2D" uid="uid://caylitl3kweg2" path="res://textures/portal/portal0002.png" id="3_fwoyv"]
 [ext_resource type="Texture2D" uid="uid://d3f2m4mt2bm3r" path="res://textures/portal/portal0003.png" id="4_bbesn"]

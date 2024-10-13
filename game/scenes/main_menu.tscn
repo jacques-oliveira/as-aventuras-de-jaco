@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cso0e0yxibp0q"]
+[gd_scene load_steps=8 format=3 uid="uid://cso0e0yxibp0q"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_tqwxf"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_tqwxf"]
 [ext_resource type="Texture2D" uid="uid://c4glikxqrmmd0" path="res://textures/background-menu.png" id="1_uvdxy"]
 [ext_resource type="Texture2D" uid="uid://jm5fcscdbuvk" path="res://textures/sp.png" id="2_coaw2"]
 [ext_resource type="Texture2D" uid="uid://dlie3ic3eq2c3" path="res://textures/SELECT-MENU.png" id="3_1cu4h"]
 [ext_resource type="FontFile" uid="uid://8h5dsq8nk7ts" path="res://FONTS/SuperMario256.ttf" id="3_uipj2"]
 [ext_resource type="Texture2D" uid="uid://3huxuh1ad4n5" path="res://textures/Jaco_sprite.png" id="4_awgep"]
+[ext_resource type="AudioStream" uid="uid://cpmwb8jusmfog" path="res://audio/main-menu.mp3" id="7_773eu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -55,7 +56,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
 clip_contents = true
 custom_minimum_size = Vector2(40, 0)
 layout_direction = 1
@@ -114,6 +114,11 @@ grow_vertical = 2
 scale = Vector2(0.524462, 0.524462)
 texture = ExtResource("4_awgep")
 stretch_mode = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_773eu")
+autoplay = true
+parameters/looping = true
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_exited"]

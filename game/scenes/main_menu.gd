@@ -15,7 +15,7 @@ func _ready() -> void:
 	buttons.append(btnExit)   # Nome do botão Exit
 	
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Level_01_Island.tscn")
+	get_tree().change_scene_to_file("res://scenes/Level_01_Island.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
