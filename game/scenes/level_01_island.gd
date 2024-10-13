@@ -6,3 +6,4 @@ func _ready() -> void:
 	heartsContainer.setMaxHearts(player.maxHealth)
 	heartsContainer.updateHearts(player.currentHealth)
 	player.healthChanged.connect(heartsContainer.updateHearts)
+	$TileMap/MainSceneAudio.volume_db+=10
