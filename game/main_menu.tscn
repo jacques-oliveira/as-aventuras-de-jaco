@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://cso0e0yxibp0q"]
+
+[ext_resource type="Texture2D" uid="uid://c4glikxqrmmd0" path="res://textures/background-menu.png" id="1_uvdxy"]
+[ext_resource type="Texture2D" uid="uid://jm5fcscdbuvk" path="res://textures/sp.png" id="2_coaw2"]
+[ext_resource type="Texture2D" uid="uid://dlie3ic3eq2c3" path="res://textures/SELECT-MENU.png" id="3_1cu4h"]
+[ext_resource type="FontFile" uid="uid://8h5dsq8nk7ts" path="res://FONTS/SuperMario256.ttf" id="3_uipj2"]
+[ext_resource type="Texture2D" uid="uid://3huxuh1ad4n5" path="res://textures/Jaco_sprite.png" id="4_awgep"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uvdxy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_coaw2")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_1cu4h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.729412, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("3_uipj2")
+theme_override_font_sizes/font_size = 40
+text = "JOGAR"
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_1cu4h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.729412, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("3_uipj2")
+theme_override_font_sizes/font_size = 40
+text = "SAIR  "
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -81.0
+offset_right = 602.0
+offset_bottom = 495.0
+grow_vertical = 2
+scale = Vector2(0.524462, 0.524462)
+texture = ExtResource("4_awgep")
+stretch_mode = 4

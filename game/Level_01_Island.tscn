@@ -673,6 +673,7 @@ visible = false
 position = Vector2(81, 700)
 
 [node name="fruit-enemy-pineapple4" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
+z_index = 0
 position = Vector2(-579, -810)
 
 [node name="AnimatedSprite2D" parent="TileMap/enemies/fruit-enemy-pineapple4" index="0"]

@@ -5,6 +5,7 @@ const SPEED = 325.0
 @export var maxHealth = 5
 @onready var currentHealth: int = maxHealth
 @onready var effects = $Effects
+var startPosition = Vector2(-522,481)
 
 func _ready() -> void:
 	effects.play("RESET")
@@ -58,9 +59,10 @@ func _on_portal_detector_area_entered(area: Area2D) -> void:
 	
 func _on_health_detector_area_entered(area: Area2D) -> void:
 	if area.name == "enemy_damage":
-		currentHealth -= 0.25
+		currentHealth -= 1
 		if currentHealth < 0:
 			currentHealth = maxHealth
+			position = startPosition
 		healthChanged.emit(currentHealth)
 		effects.play("hurtBlink")
 		await get_tree().create_timer(0.5).timeout
