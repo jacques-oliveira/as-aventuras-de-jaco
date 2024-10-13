@@ -43,6 +43,15 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_uipj2")
+theme_override_font_sizes/font_size = 50
+text = "AS AVENTURAS DO"
+
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -56,6 +65,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(40, 0)
 layout_direction = 1
@@ -81,6 +91,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(40, 0)
 layout_direction = 1
@@ -119,6 +130,23 @@ stretch_mode = 4
 stream = ExtResource("7_773eu")
 autoplay = true
 parameters/looping = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.5
+offset_top = -52.4
+offset_right = 170.5
+offset_bottom = -29.4
+grow_horizontal = 2
+grow_vertical = 0
+text = "@Niver Jacó Nascimento Oliveira 18/10/2024 "
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_exited"]
