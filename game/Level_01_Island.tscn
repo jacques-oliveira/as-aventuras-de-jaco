@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://bve6ef2d5uxyl"]
+[gd_scene load_steps=58 format=4 uid="uid://bve6ef2d5uxyl"]
 
 [ext_resource type="Script" path="res://level_01_island.gd" id="1_6ybfh"]
 [ext_resource type="Texture2D" uid="uid://ded3jhimygqhv" path="res://textures/level01_island/forest.png" id="1_um3hj"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://cntvy2x3iin6x" path="res://fruit_enemy_pineapple.tscn" id="30_6jo6m"]
 [ext_resource type="PackedScene" uid="uid://bn2px13fso85c" path="res://hearts_container.tscn" id="31_0pmui"]
 [ext_resource type="PackedScene" uid="uid://cx2e1c7e2ajua" path="res://wood_ground.tscn" id="41_xqlbe"]
+[ext_resource type="PackedScene" uid="uid://bl68v7b22gq0q" path="res://flag.tscn" id="50_kfhjf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hixir"]
 texture = ExtResource("1_um3hj")
@@ -778,6 +779,9 @@ scale = Vector2(2, 2.9)
 [node name="WoodGround4" parent="FenceWood" instance=ExtResource("41_xqlbe")]
 position = Vector2(1120, -1069)
 scale = Vector2(2, 2.9)
+
+[node name="Flag" parent="." instance=ExtResource("50_kfhjf")]
+position = Vector2(-585, 10)
 
 [editable path="TileMap/enemies/fruit-enemy-pineapple"]
 [editable path="TileMap/enemies/fruit-enemy-pineapple4"]
