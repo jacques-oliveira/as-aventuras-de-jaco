@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cso0e0yxibp0q"]
+[gd_scene load_steps=7 format=3 uid="uid://cso0e0yxibp0q"]
 
+[ext_resource type="Script" path="res://main_menu.gd" id="1_tqwxf"]
 [ext_resource type="Texture2D" uid="uid://c4glikxqrmmd0" path="res://textures/background-menu.png" id="1_uvdxy"]
 [ext_resource type="Texture2D" uid="uid://jm5fcscdbuvk" path="res://textures/sp.png" id="2_coaw2"]
 [ext_resource type="Texture2D" uid="uid://dlie3ic3eq2c3" path="res://textures/SELECT-MENU.png" id="3_1cu4h"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tqwxf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -53,6 +55,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(40, 0)
 layout_direction = 1
@@ -111,3 +114,10 @@ grow_vertical = 2
 scale = Vector2(0.524462, 0.524462)
 texture = ExtResource("4_awgep")
 stretch_mode = 4
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/exit" to="." method="_on_exit_pressed"]
