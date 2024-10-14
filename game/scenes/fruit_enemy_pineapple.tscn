@@ -77,12 +77,14 @@ frame_progress = 0.971815
 offset = Vector2(0, -112.905)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, -89)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sbvg6")
 
 [node name="enemy_damage" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 7
 
@@ -91,6 +93,7 @@ position = Vector2(0, -110)
 shape = SubResource("CircleShape2D_fdfgi")
 
 [node name="detection_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
