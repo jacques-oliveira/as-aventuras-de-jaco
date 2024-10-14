@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bn2px13fso85c"]
 
-[ext_resource type="Script" path="res://hearts_container.gd" id="1_7wpte"]
+[ext_resource type="Script" path="res://scenes/hearts_container.gd" id="1_7wpte"]
 
 [node name="heartsContainer" type="HBoxContainer"]
 offset_left = 25.0
