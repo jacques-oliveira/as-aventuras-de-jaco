@@ -1,13 +1,13 @@
 extends RigidBody2D
 var speed = 100
-var enemyLife = 2
+var enemyLife = 5
 var player_chase = false
 var player = null
 @onready var emenyDeathSound = $deathSound
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
-	enemyLife = 2
+	enemyLife = 5
 	
 func _physics_process(delta: float) -> void:
 	if player_chase && player.is_in_group("player") :

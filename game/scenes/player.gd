@@ -12,10 +12,10 @@ var canShoot = true
 var directionWalk = 0
 @onready var animatedSprite= $AnimatedSprite2D
 var lastDirectionX
-
+var lastDirectionY
 func _ready() -> void:
 	effects.play("RESET")
-	
+	lastDirectionX = 1
 func _physics_process(delta):
 
 #	variables direction
@@ -24,7 +24,7 @@ func _physics_process(delta):
 #	move character
 	if directionx:
 		velocity.x = directionx * SPEED
-		
+		lastDirectionY = 0
 		if directionx > 0:
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("walk_right")
@@ -38,20 +38,27 @@ func _physics_process(delta):
 		
 	if directiony:
 		velocity.y = directiony * SPEED
-		
+		lastDirectionX = 0
 		if directiony > 0:
 			$AnimatedSprite2D.play("walk_down")
+			lastDirectionY = 1
 		else:
 			$AnimatedSprite2D.play("walk_up")
+			lastDirectionY = -1
 	else:
 		velocity.y = move_toward(velocity.y,0, SPEED)
 		
 	if directionx == 0 and directiony == 0:
-		
-		if lastDirectionX == 1:
-			$AnimatedSprite2D.play("idle_right")
-		else :	
-			$AnimatedSprite2D.play("idle_left")
+		if lastDirectionX != 0:
+			if lastDirectionX == 1:
+				$AnimatedSprite2D.play("idle_right")
+			else :	
+				$AnimatedSprite2D.play("idle_left")
+		elif lastDirectionX == 0 and lastDirectionY != 0:
+			if lastDirectionY == 1:
+				$AnimatedSprite2D.play("idle_down")
+			else :	
+				$AnimatedSprite2D.play("idle_up")
 	move_and_slide()
 
 	
@@ -88,18 +95,20 @@ func shoot():
 	if animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle_right":
 		bullet.setVelocity(speed,0)
 		bullet.position = $shootPointWR.global_position	
-	elif animatedSprite.animation == "walk_down":
+	elif animatedSprite.animation == "walk_down" || animatedSprite.animation == "idle_down":
 		bullet.setVelocity(0,speed)
 		bullet.global_rotation = PI/2
 		bullet.position = $shootPointDOWN.global_position	
-	elif animatedSprite.animation == "walk_up":
+	elif animatedSprite.animation == "walk_up" || animatedSprite.animation == "idle_up":
 		bullet.setVelocity(0,-speed)
 		bullet.global_rotation = 3*PI/2
 		bullet.position = $shootPointUP.global_position	
 	elif animatedSprite.animation == "walk_left" || animatedSprite.animation == "idle_left":
-		bullet.setVelocity(-speed,0)
+		bullet.setVelocity(lastDirectionX*speed,0)
 		bullet.global_rotation = PI
 		bullet.position = $shootPointWL.global_position	
+	else:
+		return
 						
 	canShoot = false
 	await get_tree().create_timer(0.25).timeout
