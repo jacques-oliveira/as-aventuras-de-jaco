@@ -1,18 +1,21 @@
 extends CharacterBody2D
 
-signal healthChanged
-const SPEED = 325.0
 @export var maxHealth = 5
 @onready var currentHealth: int = maxHealth
 @onready var effects = $Effects
-var startPosition = Vector2(-522,481)
+@onready var animatedSprite= $AnimatedSprite2D
+@onready var shotLaserSound = $shotLaser
+
+const SPEED = 325.0
+signal healthChanged
 signal lostAllHearts
+var startPosition = Vector2(-522,481)
 var bulletTscn = preload("res://scenes/bullet.tscn")
 var canShoot = true
 var directionWalk = 0
-@onready var animatedSprite= $AnimatedSprite2D
 var lastDirectionX
 var lastDirectionY
+
 func _ready() -> void:
 	effects.play("RESET")
 	lastDirectionX = 1
@@ -117,3 +120,4 @@ func shoot():
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("fire") and canShoot:
 		shoot()
+		shotLaserSound.play()

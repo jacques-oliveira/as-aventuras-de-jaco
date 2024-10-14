@@ -4,10 +4,12 @@ var enemyLife = 5
 var player_chase = false
 var player = null
 @onready var emenyDeathSound = $deathSound
+@onready var effects = $Effects
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
 	enemyLife = 5
+	effects.play("RESET")
 	
 func _physics_process(delta: float) -> void:
 	if player_chase && player.is_in_group("player") :
@@ -36,6 +38,9 @@ func _on_enemy_damage_body_entered(body: Node2D) -> void:
 	print_debug("got bullet enemy_damage" + body.name)
 	if body.is_in_group("bullet"):
 		enemyLife-=1
+		effects.play("enemy-damage")
+		await get_tree().create_timer(0.4).timeout
+		effects.play("RESET")
 		body.queue_free()
 		if enemyLife <= 0:
 			emenyDeathSound.play()
