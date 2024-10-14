@@ -47,8 +47,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 	
 	move_and_slide()
-	if Input.is_action_pressed("fire") and canShoot:
-		shoot()
+
 	
 func teleporte(area:Area2D) -> void:
 	for portal in get_tree().get_nodes_in_group("Portal"):
@@ -99,3 +98,7 @@ func shoot():
 	canShoot = false
 	await get_tree().create_timer(0.25).timeout
 	canShoot = true
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("fire") and canShoot:
+		shoot()

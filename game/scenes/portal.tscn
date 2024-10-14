@@ -65,6 +65,7 @@ collision_layer = 5
 script = ExtResource("1_ekuoo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(1.72, 2.04)
 shape = SubResource("CapsuleShape2D_q1bv3")
 
