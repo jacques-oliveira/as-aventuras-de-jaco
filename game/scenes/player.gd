@@ -14,7 +14,7 @@ var directionWalk = 0
 
 func _ready() -> void:
 	effects.play("RESET")
-
+	
 func _physics_process(delta):
 
 #	variables direction
@@ -80,7 +80,7 @@ func shoot():
 	var bullet =bulletTscn.instantiate()
 	get_parent().add_child(bullet)
 	var speed = 1500.0
-	if animatedSprite.animation == "walk_right":
+	if animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle":
 		bullet.setVelocity(speed,0)
 		bullet.position = $shootPointWR.global_position	
 	elif animatedSprite.animation == "walk_down":
@@ -95,6 +95,7 @@ func shoot():
 		bullet.setVelocity(-speed,0)
 		bullet.global_rotation = PI
 		bullet.position = $shootPointWL.global_position	
+						
 	canShoot = false
 	await get_tree().create_timer(0.25).timeout
 	canShoot = true
