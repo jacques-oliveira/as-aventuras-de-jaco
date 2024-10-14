@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://vgnhkjeu7ans"]
+[gd_scene load_steps=5 format=3 uid="uid://vgnhkjeu7ans"]
 
 [ext_resource type="Texture2D" uid="uid://0v0np58n6dcm" path="res://player/bulletSprite.png" id="1_8vov7"]
 [ext_resource type="Script" path="res://scenes/bullet.gd" id="1_rmx4b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5bhid"]
-radius = 49.0
-height = 228.0
+radius = 13.0
+height = 98.0
 
-[node name="Bullet" type="RigidBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fmnwo"]
+height = 70.0
+
+[node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
 z_index = 1
 collision_layer = 4
-collision_mask = 4
-mass = 0.001
+collision_mask = 2
 script = ExtResource("1_rmx4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,8 +21,18 @@ rotation = 1.5708
 scale = Vector2(0.35, 0.5)
 texture = ExtResource("1_8vov7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="bulletArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletArea"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5bhid")
 disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fmnwo")
+
+[connection signal="area_entered" from="bulletArea" to="." method="_on_bullet_area_area_entered"]
+[connection signal="body_entered" from="bulletArea" to="." method="_on_bullet_area_body_entered"]

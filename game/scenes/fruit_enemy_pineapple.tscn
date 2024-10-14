@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cntvy2x3iin6x"]
+[gd_scene load_steps=15 format=3 uid="uid://cntvy2x3iin6x"]
 
 [ext_resource type="Script" path="res://scenes/fruit_enemy_pineapple.gd" id="1_bjjgp"]
 [ext_resource type="Texture2D" uid="uid://cl7bby1akstc6" path="res://textures/enemys/enemy-orange/frame0000.png" id="1_rdaos"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt74ypl83e8ub" path="res://textures/enemys/enemy-orange/frame0005.png" id="6_0bs2h"]
 [ext_resource type="Texture2D" uid="uid://mb6n017bjcd7" path="res://textures/enemys/enemy-orange/frame0006.png" id="7_3kwtw"]
 [ext_resource type="Texture2D" uid="uid://c141tojvk8k77" path="res://textures/enemys/enemy-orange/frame0007.png" id="8_uo6qr"]
+[ext_resource type="AudioStream" uid="uid://cqgtmotcpcx8y" path="res://audio/enemy-death.mp3" id="10_xp0qi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oode1"]
 animations = [{
@@ -47,21 +48,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e8sjp"]
-radius = 440.328
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbvg6"]
 radius = 74.0
 height = 150.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hn5en"]
-radius = 109.179
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdfgi"]
+radius = 111.041
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8sjp"]
+radius = 440.328
 
 [node name="fruit-enemy-pineapple" type="RigidBody2D" groups=["enemy"]]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 mass = 0.001
 gravity_scale = 0.0
 lock_rotation = true
@@ -75,9 +76,22 @@ animation = &"idle"
 frame_progress = 0.971815
 offset = Vector2(0, -112.905)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -89)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sbvg6")
+
+[node name="enemy_damage" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_damage"]
+position = Vector2(0, -110)
+shape = SubResource("CircleShape2D_fdfgi")
+
 [node name="detection_area" type="Area2D" parent="."]
-visible = false
-collision_layer = 3
+collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
@@ -85,19 +99,10 @@ position = Vector2(-2, -88)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_e8sjp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-z_index = 1
-position = Vector2(0, -89)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_sbvg6")
+[node name="deathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_xp0qi")
+volume_db = 8.0
 
-[node name="enemy_damage" type="Area2D" parent="."]
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_damage" groups=["enemy"]]
-position = Vector2(0, -93)
-shape = SubResource("CircleShape2D_hn5en")
-
+[connection signal="body_entered" from="enemy_damage" to="." method="_on_enemy_damage_body_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

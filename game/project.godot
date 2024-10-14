@@ -28,6 +28,7 @@ window/stretch/mode="canvas_items"
 Portal=""
 player=""
 enemy=""
+bullet=""
 
 [input]
 

@@ -423,7 +423,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_10tsx"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "border_grass"
@@ -668,7 +668,7 @@ sprite_frames = SubResource("SpriteFrames_v8eps")
 animation = &"walk"
 frame_progress = 0.0
 
-[node name="enemy_damage" parent="TileMap/enemies/fruit-enemy-pineapple" index="3"]
+[node name="enemy_damage" parent="TileMap/enemies/fruit-enemy-pineapple" index="2"]
 visible = false
 
 [node name="fruit-enemy-pineapple2" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
