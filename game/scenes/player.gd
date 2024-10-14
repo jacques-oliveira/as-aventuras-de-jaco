@@ -7,6 +7,10 @@ const SPEED = 325.0
 @onready var effects = $Effects
 var startPosition = Vector2(-522,481)
 signal lostAllHearts
+var bulletTscn = preload("res://scenes/bullet.tscn")
+var canShoot = true
+var directionWalk = 0
+@onready var animatedSprite= $AnimatedSprite2D
 
 func _ready() -> void:
 	effects.play("RESET")
@@ -25,7 +29,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("walk_right")
 		else:
 			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("walk_right")
+			$AnimatedSprite2D.play("walk_left")
 	else:
 		velocity.x = move_toward(velocity.x,0, SPEED)
 		
@@ -41,9 +45,11 @@ func _physics_process(delta):
 		
 	if directionx == 0 and directiony == 0:
 		$AnimatedSprite2D.stop()
-	
+	print_debug(directionWalk)
 	move_and_slide()
-
+	if Input.is_action_pressed("fire") and canShoot:
+		shoot()
+	
 func teleporte(area:Area2D) -> void:
 	for portal in get_tree().get_nodes_in_group("Portal"):
 		if portal != area:
@@ -69,3 +75,25 @@ func _on_health_detector_area_entered(area: Area2D) -> void:
 		effects.play("hurtBlink")
 		await get_tree().create_timer(0.5).timeout
 		effects.play("RESET")
+
+func shoot():
+	var bullet =bulletTscn.instantiate()
+	get_parent().add_child(bullet)
+	if animatedSprite.animation == "walk_right":
+		bullet.velocity = Vector2(1,0)
+		bullet.position = $shootPointWR.global_position	
+	elif animatedSprite.animation == "walk_down":
+		bullet.velocity = Vector2(0,1)
+		bullet.global_rotation = PI/2
+		bullet.position = $shootPointDOWN.global_position	
+	elif animatedSprite.animation == "walk_up":
+		bullet.velocity = Vector2(0,-1)
+		bullet.global_rotation = 3*PI/2
+		bullet.position = $shootPointUP.global_position	
+	elif animatedSprite.animation == "walk_left":
+		bullet.velocity = Vector2(-1,0)
+		bullet.global_rotation = PI
+		bullet.position = $shootPointWL.global_position	
+	canShoot = false
+	await get_tree().create_timer(0.25).timeout
+	canShoot = true

@@ -83,6 +83,35 @@ animations = [{
 "texture": ExtResource("16_4pjwt")
 }],
 "loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oq1ri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fw44y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_53adf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4djua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4jkql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i5rk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yunv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4pjwt")
+}],
+"loop": true,
 "name": &"walk_right",
 "speed": 8.0
 }, {
@@ -177,9 +206,7 @@ script = ExtResource("1_nxjp1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_cr3o1")
-animation = &"walk_up"
-frame = 7
-frame_progress = 0.576515
+animation = &"walk_left"
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 offset_left = -294.0
@@ -210,6 +237,18 @@ shape = SubResource("CircleShape2D_r73vb")
 libraries = {
 "": SubResource("AnimationLibrary_ywccj")
 }
+
+[node name="shootPointWR" type="Marker2D" parent="."]
+position = Vector2(200, 114)
+
+[node name="shootPointWL" type="Marker2D" parent="."]
+position = Vector2(-226, 114)
+
+[node name="shootPointUP" type="Marker2D" parent="."]
+position = Vector2(-10, -280)
+
+[node name="shootPointDOWN" type="Marker2D" parent="."]
+position = Vector2(4, 276)
 
 [connection signal="area_entered" from="portal_detector" to="." method="_on_portal_detector_area_entered"]
 [connection signal="area_entered" from="health_detector" to="." method="_on_health_detector_area_entered"]
