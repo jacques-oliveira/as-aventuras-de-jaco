@@ -424,7 +424,7 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_10tsx"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 0
+physics_layer_0/collision_mask = 6
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "border_grass"
 terrain_set_0/terrain_0/color = Color(0.568627, 0, 0.760784, 1)
@@ -615,6 +615,7 @@ script = ExtResource("1_6ybfh")
 y_sort_enabled = true
 position = Vector2(-1, 0)
 tile_set = SubResource("TileSet_10tsx")
+use_kinematic_bodies = true
 
 [node name="grass_dirty" type="TileMapLayer" parent="TileMap"]
 y_sort_enabled = true
