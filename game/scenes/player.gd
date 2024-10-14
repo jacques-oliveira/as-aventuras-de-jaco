@@ -11,6 +11,7 @@ var bulletTscn = preload("res://scenes/bullet.tscn")
 var canShoot = true
 var directionWalk = 0
 @onready var animatedSprite= $AnimatedSprite2D
+var lastDirectionX
 
 func _ready() -> void:
 	effects.play("RESET")
@@ -27,9 +28,11 @@ func _physics_process(delta):
 		if directionx > 0:
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("walk_right")
+			lastDirectionX = 1
 		else:
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("walk_left")
+			lastDirectionX = -1 
 	else:
 		velocity.x = move_toward(velocity.x,0, SPEED)
 		
@@ -44,8 +47,11 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y,0, SPEED)
 		
 	if directionx == 0 and directiony == 0:
-		$AnimatedSprite2D.stop()
-	
+		
+		if lastDirectionX == 1:
+			$AnimatedSprite2D.play("idle_right")
+		else :	
+			$AnimatedSprite2D.play("idle_left")
 	move_and_slide()
 
 	
@@ -79,7 +85,7 @@ func shoot():
 	var bullet =bulletTscn.instantiate()
 	get_parent().add_child(bullet)
 	var speed = 1500.0
-	if animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle":
+	if animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle_right":
 		bullet.setVelocity(speed,0)
 		bullet.position = $shootPointWR.global_position	
 	elif animatedSprite.animation == "walk_down":
@@ -90,7 +96,7 @@ func shoot():
 		bullet.setVelocity(0,-speed)
 		bullet.global_rotation = 3*PI/2
 		bullet.position = $shootPointUP.global_position	
-	elif animatedSprite.animation == "walk_left":
+	elif animatedSprite.animation == "walk_left" || animatedSprite.animation == "idle_left":
 		bullet.setVelocity(-speed,0)
 		bullet.global_rotation = PI
 		bullet.position = $shootPointWL.global_position	

@@ -34,7 +34,15 @@ animations = [{
 "texture": ExtResource("2_8m14d")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8m14d")
+}],
+"loop": true,
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -215,7 +223,7 @@ script = ExtResource("1_nxjp1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_cr3o1")
-animation = &"idle"
+animation = &"idle_left"
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 offset_left = -294.0
