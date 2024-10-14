@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://pvgqvdmdmbub"]
+[gd_scene load_steps=34 format=3 uid="uid://pvgqvdmdmbub"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_nxjp1"]
 [ext_resource type="Texture2D" uid="uid://u8dqtvq5o6he" path="res://player/walk_down0009.png" id="1_txj3f"]
+[ext_resource type="Texture2D" uid="uid://ldtsvn7ek83k" path="res://player/idle.png" id="2_8m14d"]
 [ext_resource type="Texture2D" uid="uid://chkwlto3llv02" path="res://player/walk_down0010.png" id="2_u3wrw"]
 [ext_resource type="Texture2D" uid="uid://cf7q0s0tkaa80" path="res://player/walk_down0011.png" id="3_sy16t"]
 [ext_resource type="Texture2D" uid="uid://bdnanuah5dpn5" path="res://player/walk_down0012.png" id="4_b0i8v"]
@@ -28,6 +29,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cr3o1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8m14d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_txj3f")
@@ -206,7 +215,7 @@ script = ExtResource("1_nxjp1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_cr3o1")
-animation = &"walk_left"
+animation = &"idle"
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 offset_left = -294.0
