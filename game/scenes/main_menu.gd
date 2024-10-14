@@ -4,6 +4,9 @@ extends Control
 @onready var selectBtnExit = $MarginContainer/VBoxContainer/HBoxContainer2/TextureRect
 @onready var btnPlay = $MarginContainer/VBoxContainer/HBoxContainer/play
 @onready var btnExit = $MarginContainer/VBoxContainer/HBoxContainer2/exit
+@onready var pressAudioButton = $pressButton
+@onready var selectAudioButton = $selectButton
+
 var buttons = []
 
 var selectedButton = 0
@@ -14,9 +17,12 @@ func _ready() -> void:
 	buttons.append(btnPlay)  # Nome do botão Play
 	buttons.append(btnExit)   # Nome do botão Exit
 	
-func _on_play_pressed() -> void:
+func _on_play_pressed() -> void:	
+	if not pressAudioButton.playing:
+		pressAudioButton.play()		
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/Level_01_Island.tscn")
-
+	
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
@@ -41,10 +47,12 @@ func _input(event: InputEvent) -> void:
 		selectBtnPlay.visible = true
 		selectBtnExit.visible = false
 		selectedButton = 0
+		selectAudioButton.play()
 	elif event.is_action_pressed("ui_down"):
 		selectBtnPlay.visible = false
 		selectBtnExit.visible = true
 		selectedButton = 1
+		selectAudioButton.play()
 	elif event.is_action("ui_select"):
 		#buttons[selectedButton].press()
 		match (selectedButton):
