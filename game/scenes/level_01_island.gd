@@ -5,10 +5,12 @@ extends Node2D
 @onready var lifeLabel = $TileMap/CanvasLayer/HBoxContainer/LifeCount
 @onready var coin = $TileMap/Coins/Coin/coinCollect
 @onready var coinLabel = $TileMap/CanvasLayer/CoinGUI/labelCointCount
+@onready var enemies = $TileMap/enemies.get_child_count()
 
 var coinCount
 
 func _ready() -> void:
+	GameManager.enemyiesOnScene = enemies
 	lifeCount = 3
 	coinCount = 0
 	player.connect("lostAllHearts",Callable(self,"_on_lostAllHearts"))

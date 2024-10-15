@@ -45,8 +45,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1w70"]
-radius = 38.0
-height = 136.0
+radius = 78.0
+height = 156.0
 
 [sub_resource type="Gradient" id="Gradient_dfthk"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -91,6 +91,7 @@ anim_speed_max = 13.89
 anim_offset_max = 0.0345
 
 [node name="Coin" type="CharacterBody2D" groups=["coins"]]
+y_sort_enabled = true
 collision_layer = 16
 script = ExtResource("1_8y7or")
 
@@ -102,7 +103,7 @@ frame = 7
 frame_progress = 0.449593
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, -33)
+position = Vector2(20, -74)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s1w70")
 

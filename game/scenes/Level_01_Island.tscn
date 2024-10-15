@@ -680,6 +680,9 @@ frame_progress = 0.0
 [node name="fruit-enemy-pineapple2" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
 position = Vector2(81, 700)
 
+[node name="fruit-enemy-pineapple5" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
+position = Vector2(850, -1169)
+
 [node name="fruit-enemy-pineapple3" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
 position = Vector2(-827, 1544)
 

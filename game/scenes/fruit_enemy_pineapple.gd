@@ -45,5 +45,6 @@ func _on_enemy_damage_body_entered(body: Node2D) -> void:
 		if enemyLife <= 0:
 			emenyDeathSound.play()
 			await get_tree().create_timer(0.4).timeout
+			GameManager.enemyDead -= 1
 			queue_free()
 			
