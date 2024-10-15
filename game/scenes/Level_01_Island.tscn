@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bve6ef2d5uxyl"]
+[gd_scene load_steps=61 format=4 uid="uid://bve6ef2d5uxyl"]
 
 [ext_resource type="Script" path="res://scenes/level_01_island.gd" id="1_6ybfh"]
 [ext_resource type="Texture2D" uid="uid://ded3jhimygqhv" path="res://textures/level01_island/forest.png" id="1_um3hj"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://bp84d523ks3su" path="res://textures/Jaco_sprite_head.png" id="49_qxo1l"]
 [ext_resource type="FontFile" uid="uid://8h5dsq8nk7ts" path="res://FONTS/SuperMario256.ttf" id="50_a73t3"]
 [ext_resource type="PackedScene" uid="uid://bl68v7b22gq0q" path="res://scenes/flag.tscn" id="50_kfhjf"]
+[ext_resource type="PackedScene" uid="uid://dhsiu065c8j2r" path="res://coin.tscn" id="51_xdy5o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hixir"]
 texture = ExtResource("1_um3hj")
@@ -791,6 +792,48 @@ theme_override_font_sizes/font_size = 50
 text = "X2"
 horizontal_alignment = 3
 vertical_alignment = 2
+
+[node name="Coins" type="Node2D" parent="TileMap"]
+position = Vector2(1569, 515)
+scale = Vector2(0.75, 0.75)
+
+[node name="Coin" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+
+[node name="Coin2" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(0, 246.667)
+
+[node name="Coin3" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(1.33333, 484)
+
+[node name="Coin4" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(1.33333, 716)
+
+[node name="Coin5" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1472, 1396)
+
+[node name="Coin6" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1472, 1618.67)
+
+[node name="Coin7" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1472, 1876)
+
+[node name="Coin8" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-2698.67, -1336)
+
+[node name="Coin9" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-2456, -1336)
+
+[node name="Coin10" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-2216, -1336)
+
+[node name="Coin11" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-696, -286.667)
+
+[node name="Coin12" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-696, -560)
+
+[node name="Coin13" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-696, -828)
 
 [node name="FenceWood" type="Node2D" parent="."]
 

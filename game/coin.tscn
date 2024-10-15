@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhsiu065c8j2r"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_8y7or"]
+[ext_resource type="Texture2D" uid="uid://c1lovloelx5we" path="res://textures/coin/coin0001.png" id="1_y07wo"]
+[ext_resource type="Texture2D" uid="uid://dxupquwvcx45i" path="res://textures/coin/coin0002.png" id="2_xv111"]
+[ext_resource type="Texture2D" uid="uid://de2pkwrekmjue" path="res://textures/coin/coin0003.png" id="3_goxjh"]
+[ext_resource type="Texture2D" uid="uid://cob6i6obf3p70" path="res://textures/coin/coin0004.png" id="4_4sxkm"]
+[ext_resource type="Texture2D" uid="uid://bwcv5sxdkikuy" path="res://textures/coin/coin0005.png" id="5_2mmvb"]
+[ext_resource type="Texture2D" uid="uid://nltr7a05jiyr" path="res://textures/coin/coin0006.png" id="6_03wed"]
+[ext_resource type="Texture2D" uid="uid://b7oos2x38acc2" path="res://textures/coin/coin0007.png" id="7_ljvq7"]
+[ext_resource type="Texture2D" uid="uid://cwduy4q37l8q3" path="res://textures/coin/coin0008.png" id="8_dml4n"]
+[ext_resource type="AudioStream" uid="uid://cpcihdb1gk78" path="res://audio/smb_coin.mp3" id="10_urnff"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3whs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y07wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xv111")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_goxjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4sxkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2mmvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_03wed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ljvq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dml4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_avcxb"]
+radius = 131.004
+
+[sub_resource type="Gradient" id="Gradient_dfthk"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u3uj1"]
+gradient = SubResource("Gradient_dfthk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.923077, 0.179487)
+
+[node name="Coin" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_8y7or")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -82)
+sprite_frames = SubResource("SpriteFrames_c3whs")
+autoplay = "default"
+frame = 7
+frame_progress = 0.449593
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -85)
+shape = SubResource("CircleShape2D_avcxb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3, -75)
+color = Color(0.823628, 0.65172, 0, 1)
+energy = 0.25
+texture = SubResource("GradientTexture2D_u3uj1")
+texture_scale = 2.75
+height = 780.0
+
+[node name="coinCollect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coinCollect"]
+position = Vector2(4, -85)
+shape = SubResource("CircleShape2D_avcxb")
+
+[node name="coinAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_urnff")
+volume_db = 12.0
+
+[connection signal="body_entered" from="coinCollect" to="." method="_on_coin_collect_body_entered"]
