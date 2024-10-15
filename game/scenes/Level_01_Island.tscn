@@ -831,7 +831,16 @@ position = Vector2(1569, 515)
 scale = Vector2(0.75, 0.75)
 
 [node name="Coin" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
-position = Vector2(-1317.33, 96)
+position = Vector2(-10.6666, -49.3333)
+
+[node name="Coin14" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1668, 128)
+
+[node name="Coin15" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1412, 128)
+
+[node name="Coin16" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1138.67, 128)
 
 [node name="Coin2" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
 position = Vector2(0, 246.667)
@@ -853,6 +862,12 @@ position = Vector2(-1472, 1876)
 
 [node name="Coin8" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
 position = Vector2(-2698.67, -1336)
+
+[node name="Coin17" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-3022.67, -2210.67)
+
+[node name="Coin18" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-2788, -2197.33)
 
 [node name="Coin9" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
 position = Vector2(-2456, -1336)

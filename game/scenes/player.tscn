@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://pvgqvdmdmbub"]
+[gd_scene load_steps=36 format=3 uid="uid://pvgqvdmdmbub"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_nxjp1"]
 [ext_resource type="Texture2D" uid="uid://u8dqtvq5o6he" path="res://player/walk_down0009.png" id="1_txj3f"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dxxs8weinqusl" path="res://player/walk_up0015.png" id="24_ywi2i"]
 [ext_resource type="Texture2D" uid="uid://daa40ax7jclmj" path="res://player/walk_up0016.png" id="25_jd813"]
 [ext_resource type="AudioStream" uid="uid://b7ik624k3nnac" path="res://audio/laser-gun-shot-sound.mp3" id="27_n2obi"]
+[ext_resource type="AudioStream" uid="uid://caui8akog5dqv" path="res://audio/hurt.mp3" id="28_khh67"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cr3o1"]
 animations = [{
@@ -285,6 +286,10 @@ position = Vector2(4, 276)
 
 [node name="shotLaser" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_n2obi")
+
+[node name="hurtDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_khh67")
+volume_db = 8.0
 
 [connection signal="area_entered" from="portal_detector" to="." method="_on_portal_detector_area_entered"]
 [connection signal="area_entered" from="health_detector" to="." method="_on_health_detector_area_entered"]

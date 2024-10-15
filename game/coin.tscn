@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhsiu065c8j2r"]
+[gd_scene load_steps=21 format=3 uid="uid://dhsiu065c8j2r"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_8y7or"]
 [ext_resource type="Texture2D" uid="uid://c1lovloelx5we" path="res://textures/coin/coin0001.png" id="1_y07wo"]
@@ -59,6 +59,8 @@ fill_to = Vector2(0.923077, 0.179487)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_avcxb"]
 radius = 45.1774
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7jlkx"]
 
 [sub_resource type="Curve" id="Curve_mo6fl"]
 _data = [Vector2(0, 1), 0.0, -0.249695, 0, 0, Vector2(1, 0), -0.180461, 0.0, 0, 0]
@@ -124,6 +126,8 @@ stream = ExtResource("10_jumtd")
 volume_db = 12.0
 
 [node name="particle" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_7jlkx")
+use_parent_material = true
 position = Vector2(4, -88)
 amount = 24
 process_material = SubResource("ParticleProcessMaterial_6d86s")

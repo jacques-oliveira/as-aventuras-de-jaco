@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var effects = $Effects
 @onready var animatedSprite= $AnimatedSprite2D
 @onready var shotLaserSound = $shotLaser
+@onready var hurtDamage = $hurtDamage
 
 const SPEED = 325.0
 signal healthChanged
@@ -82,6 +83,7 @@ func _on_portal_detector_area_entered(area: Area2D) -> void:
 func _on_health_detector_area_entered(area: Area2D) -> void:
 	if area.name == "enemy_damage":
 		currentHealth -= 1
+		hurtDamage.play()
 		if currentHealth <= 0:
 			emit_signal("lostAllHearts",currentHealth)
 			currentHealth = maxHealth
