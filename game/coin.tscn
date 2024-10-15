@@ -66,7 +66,7 @@ radius = 45.1774
 _data = [Vector2(0, 1), 0.0, -0.249695, 0, 0, Vector2(1, 0), -0.180461, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_yt1x0"]
+[sub_resource type="CurveTexture" id="CurveTexture_wsm8r"]
 curve = SubResource("Curve_mo6fl")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6d86s"]
@@ -81,7 +81,7 @@ radial_velocity_min = 97.18
 radial_velocity_max = 1000.0
 gravity = Vector3(0, 980, 0)
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_yt1x0")
+scale_curve = SubResource("CurveTexture_wsm8r")
 scale_over_velocity_min = 1.0
 scale_over_velocity_max = 4.0
 color = Color(0.933885, 0.787288, 0, 1)
