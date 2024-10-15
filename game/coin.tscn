@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b7oos2x38acc2" path="res://textures/coin/coin0007.png" id="7_ljvq7"]
 [ext_resource type="Texture2D" uid="uid://cwduy4q37l8q3" path="res://textures/coin/coin0008.png" id="8_dml4n"]
 [ext_resource type="AudioStream" uid="uid://dla1i3u1rn6bj" path="res://audio/coin-collect.mp3" id="10_jumtd"]
-[ext_resource type="Texture2D" path="/home/jacques/Documents/game-development/as-aventuras-de-jaco/game/textures/coin/star.png" id="11_youvu"]
+[ext_resource type="Texture2D" uid="uid://rmalwphmsuyn" path="res://textures/coin/star.png" id="11_youvu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3whs"]
 animations = [{
@@ -129,6 +129,7 @@ volume_db = 12.0
 material = SubResource("CanvasItemMaterial_7jlkx")
 use_parent_material = true
 position = Vector2(4, -88)
+emitting = false
 amount = 24
 process_material = SubResource("ParticleProcessMaterial_6d86s")
 texture = ExtResource("11_youvu")
