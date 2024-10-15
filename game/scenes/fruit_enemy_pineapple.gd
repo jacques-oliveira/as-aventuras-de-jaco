@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 		
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	print_debug("got bullet " + body.name)
+	#print_debug("got bullet " + body.name)
 	if body.is_in_group("player"):
 		player = body
 		player_chase = true
@@ -35,7 +35,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		player_chase = false	
 
 func _on_enemy_damage_body_entered(body: Node2D) -> void:
-	print_debug("got bullet enemy_damage" + body.name)
+	#print_debug("got bullet enemy_damage" + body.name)
 	if body.is_in_group("bullet"):
 		enemyLife-=1
 		effects.play("enemy-damage")
