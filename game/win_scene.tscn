@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dthfsffy7x2d"]
+[gd_scene load_steps=9 format=3 uid="uid://dthfsffy7x2d"]
 
+[ext_resource type="Script" path="res://win_scene.gd" id="1_jwf7k"]
 [ext_resource type="Texture2D" uid="uid://dakhnxopavssg" path="res://textures/coin/coin-gui.png" id="1_tx532"]
 [ext_resource type="Texture2D" uid="uid://ha31bunsi5hk" path="res://textures/winBackround.png" id="1_xaljm"]
 [ext_resource type="FontFile" uid="uid://8h5dsq8nk7ts" path="res://FONTS/SuperMario256.ttf" id="2_gflfb"]
 [ext_resource type="Texture2D" uid="uid://bjk150fnbadag" path="res://textures/win-scene-ground.png" id="4_tm3wk"]
 [ext_resource type="Texture2D" uid="uid://cn1ol72elisof" path="res://textures/label-win-scene.png" id="5_pdfey"]
 [ext_resource type="PackedScene" uid="uid://dw43mqef884px" path="res://big_flag.tscn" id="6_c18af"]
+[ext_resource type="AudioStream" uid="uid://bq5dtwquuq08p" path="res://audio/happy-birthday-acoustic.mp3" id="8_spfeu"]
 
 [node name="WinScene" type="Control"]
 layout_mode = 3
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jwf7k")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_direction = 1
@@ -157,3 +160,9 @@ stretch_mode = 5
 [node name="BigFlag" parent="." instance=ExtResource("6_c18af")]
 position = Vector2(138, 422)
 scale = Vector2(0.75, 0.75)
+
+[node name="WinSceneAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_spfeu")
+volume_db = 10.0
+autoplay = true
+parameters/looping = true

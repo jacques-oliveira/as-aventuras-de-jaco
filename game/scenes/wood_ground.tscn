@@ -16,3 +16,4 @@ texture = ExtResource("1_sx1ue")
 visible = false
 position = Vector2(0, -34)
 shape = SubResource("CapsuleShape2D_kj4l4")
+disabled = true
