@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dw43mqef884px" path="res://big_flag.tscn" id="6_c18af"]
 [ext_resource type="AudioStream" uid="uid://bq5dtwquuq08p" path="res://audio/happy-birthday-acoustic.mp3" id="8_spfeu"]
 [ext_resource type="Texture2D" uid="uid://3huxuh1ad4n5" path="res://textures/Jaco_sprite.png" id="9_77cll"]
-[ext_resource type="Texture2D" path="/home/jacques/Documents/game-development/as-aventuras-de-jaco/game/textures/coin/star.png/" id="10_oh1cp"]
+[ext_resource type="Texture2D" uid="uid://rmalwphmsuyn" path="res://textures/coin/star.png" id="10_oh1cp"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_esdw7"]
 lifetime_randomness = 1.0
