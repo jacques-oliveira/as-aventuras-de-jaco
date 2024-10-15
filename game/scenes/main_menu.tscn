@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cso0e0yxibp0q"]
+[gd_scene load_steps=12 format=3 uid="uid://cso0e0yxibp0q"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_tqwxf"]
 [ext_resource type="Texture2D" uid="uid://c4glikxqrmmd0" path="res://textures/background-menu.png" id="1_uvdxy"]
@@ -7,7 +7,9 @@
 [ext_resource type="FontFile" uid="uid://8h5dsq8nk7ts" path="res://FONTS/SuperMario256.ttf" id="3_uipj2"]
 [ext_resource type="Texture2D" uid="uid://3huxuh1ad4n5" path="res://textures/Jaco_sprite.png" id="4_awgep"]
 [ext_resource type="AudioStream" uid="uid://cpmwb8jusmfog" path="res://audio/main-menu.mp3" id="7_773eu"]
+[ext_resource type="Texture2D" uid="uid://cl7bby1akstc6" path="res://textures/enemys/enemy-orange/frame0000.png" id="7_arcit"]
 [ext_resource type="AudioStream" uid="uid://mclnuyb0kyr8" path="res://audio/press-menu-button.mp3" id="8_sj302"]
+[ext_resource type="Texture2D" uid="uid://cxuksr75vuigk" path="res://textures/enemys/enemy-green/frame0000.png" id="8_xe38h"]
 [ext_resource type="AudioStream" uid="uid://20sxwxg1dydh" path="res://audio/select-button.mp3" id="9_dn632"]
 
 [node name="MainMenu" type="Control"]
@@ -127,6 +129,35 @@ grow_vertical = 2
 scale = Vector2(0.524462, 0.524462)
 texture = ExtResource("4_awgep")
 stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 719.0
+offset_top = 10.0
+offset_right = 1135.0
+offset_bottom = 414.0
+grow_vertical = 2
+scale = Vector2(0.524462, 0.524462)
+texture = ExtResource("7_arcit")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 556.0
+offset_top = 10.0
+offset_right = 972.0
+offset_bottom = 414.0
+grow_vertical = 2
+scale = Vector2(0.524462, 0.524462)
+texture = ExtResource("8_xe38h")
+stretch_mode = 4
+flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_773eu")
