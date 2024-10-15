@@ -29,6 +29,7 @@ Portal=""
 player=""
 enemy=""
 bullet=""
+coins=""
 
 [input]
 

@@ -55,7 +55,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.923077, 0.179487)
 
-[node name="Coin" type="CharacterBody2D"]
+[node name="Coin" type="CharacterBody2D" groups=["coins"]]
 collision_layer = 16
 script = ExtResource("1_8y7or")
 
@@ -79,7 +79,7 @@ texture = SubResource("GradientTexture2D_u3uj1")
 texture_scale = 2.75
 height = 780.0
 
-[node name="coinCollect" type="Area2D" parent="."]
+[node name="coinCollect" type="Area2D" parent="." groups=["coins"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coinCollect"]
 position = Vector2(4, -85)

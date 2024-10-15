@@ -3,10 +3,17 @@ extends Node2D
 @onready var player = $TileMap/Player
 @onready var lifeCount
 @onready var lifeLabel = $TileMap/CanvasLayer/HBoxContainer/LifeCount
+@onready var coin = $TileMap/Coins/Coin/coinCollect
+@onready var coinLabel = $TileMap/CanvasLayer/CoinGUI/labelCointCount
+
+var coinCount
 
 func _ready() -> void:
-	player.connect("lostAllHearts",Callable(self,"_on_lostAllHearts"))
 	lifeCount = 3
+	coinCount = 0
+	player.connect("lostAllHearts",Callable(self,"_on_lostAllHearts"))
+	connectCoins()
+	coinLabel.text = "X" + str(coinCount)
 	lifeLabel.text = "X" + str(lifeCount)
 	heartsContainer.setMaxHearts(player.maxHealth)
 	heartsContainer.updateHearts(player.currentHealth)
@@ -24,3 +31,11 @@ func _on_lostAllHearts(currentHealth:int) -> void:
 		
 func _change_scene_to_main_menu() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_coinCollected() -> void:
+	coinCount+=1
+	coinLabel.text = "X" + str(coinCount)
+	
+func connectCoins() -> void:
+	for coin in get_tree().get_nodes_in_group("coins"):
+		coin.connect("coinCollected",Callable(self,"_on_coinCollected"))

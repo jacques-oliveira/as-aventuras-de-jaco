@@ -816,7 +816,7 @@ size_flags_vertical = 0
 texture = ExtResource("51_4s7x3")
 expand_mode = 1
 
-[node name="LifeCount" type="Label" parent="TileMap/CanvasLayer/CoinGUI"]
+[node name="labelCointCount" type="Label" parent="TileMap/CanvasLayer/CoinGUI"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
@@ -831,6 +831,7 @@ position = Vector2(1569, 515)
 scale = Vector2(0.75, 0.75)
 
 [node name="Coin" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
+position = Vector2(-1317.33, 96)
 
 [node name="Coin2" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
 position = Vector2(0, 246.667)
