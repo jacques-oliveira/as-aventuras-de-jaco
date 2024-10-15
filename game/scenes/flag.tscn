@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl68v7b22gq0q"]
+[gd_scene load_steps=13 format=3 uid="uid://bl68v7b22gq0q"]
 
+[ext_resource type="Script" path="res://scenes/flag.gd" id="1_d5iwy"]
 [ext_resource type="Texture2D" uid="uid://d0isvukpt4vwj" path="res://textures/flag/frame0000.png" id="1_la2dr"]
 [ext_resource type="Texture2D" uid="uid://bsxhseu7gmjcr" path="res://textures/flag/frame0001.png" id="2_o40lf"]
 [ext_resource type="Texture2D" uid="uid://c7g1ify0qd5xa" path="res://textures/flag/frame0002.png" id="3_32ccg"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://fgh0lr21ovhf" path="res://textures/flag/frame0005.png" id="6_yl0v1"]
 [ext_resource type="Texture2D" uid="uid://f4h24sg52jee" path="res://textures/flag/frame0006.png" id="7_fl4my"]
 [ext_resource type="Texture2D" uid="uid://voy685q5ebia" path="res://textures/flag/frame0007.png" id="8_a6lrp"]
+[ext_resource type="AudioStream" uid="uid://7u20hewtmmat" path="res://audio/flag-point.mp3" id="10_rrocn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fx22"]
 animations = [{
@@ -41,11 +43,12 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sv3n8"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhmux"]
 radius = 42.0
-height = 136.0
+height = 124.0
 
-[node name="Flag" type="StaticBody2D"]
+[node name="Flag" type="Node2D"]
+script = ExtResource("1_d5iwy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -52)
@@ -54,7 +57,14 @@ autoplay = "default"
 frame = 7
 frame_progress = 0.236736
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-13, -69)
-shape = SubResource("CapsuleShape2D_sv3n8")
+[node name="flagArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flagArea"]
+position = Vector2(-28, -67)
+shape = SubResource("CapsuleShape2D_lhmux")
+
+[node name="flagAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_rrocn")
+volume_db = 13.0
+
+[connection signal="body_entered" from="flagArea" to="." method="_on_flag_area_body_entered"]

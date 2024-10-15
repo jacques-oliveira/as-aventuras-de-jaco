@@ -15,6 +15,10 @@ run/main_scene="res://scenes/Level_01_Island.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://scenes/icon.svg"
 
+[autoload]
+
+GameManager="*res://GameManager.gd"
+
 [display]
 
 window/size/viewport_width=960

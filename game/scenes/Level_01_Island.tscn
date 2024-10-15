@@ -889,6 +889,7 @@ position = Vector2(-696, -828)
 [node name="WoodGround" parent="FenceWood" instance=ExtResource("41_xqlbe")]
 position = Vector2(1120, -1342)
 scale = Vector2(2, 2.9)
+collision_mask = 0
 
 [node name="WoodGround2" parent="FenceWood" instance=ExtResource("41_xqlbe")]
 position = Vector2(1120, -1239)
