@@ -41,7 +41,7 @@ func _on_enemy_damage_body_entered(body: Node2D) -> void:
 		effects.play("enemy-damage")
 		await get_tree().create_timer(0.4).timeout
 		effects.play("RESET")
-		body.queue_free()
+		#body.queue_free()
 		if enemyLife <= 0:
 			emenyDeathSound.play()
 			await get_tree().create_timer(0.4).timeout
