@@ -129,6 +129,7 @@ volume_db = 12.0
 material = SubResource("CanvasItemMaterial_7jlkx")
 use_parent_material = true
 position = Vector2(4, -88)
+emitting = false
 amount = 24
 process_material = SubResource("ParticleProcessMaterial_6d86s")
 texture = ExtResource("11_youvu")
