@@ -38,4 +38,5 @@ func _on_coinCollected() -> void:
 	
 func connectCoins() -> void:
 	for coin in get_tree().get_nodes_in_group("coins"):
-		coin.connect("coinCollected",Callable(self,"_on_coinCollected"))
+		if coin.has_signal("coinCollected"):
+			coin.connect("coinCollected", _on_coinCollected)

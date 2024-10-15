@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhsiu065c8j2r"]
+[gd_scene load_steps=16 format=3 uid="uid://dhsiu065c8j2r"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_8y7or"]
 [ext_resource type="Texture2D" uid="uid://c1lovloelx5we" path="res://textures/coin/coin0001.png" id="1_y07wo"]
@@ -55,6 +55,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.923077, 0.179487)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6d86s"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
 [node name="Coin" type="CharacterBody2D" groups=["coins"]]
 collision_layer = 16
 script = ExtResource("1_8y7or")
@@ -80,6 +85,7 @@ texture_scale = 2.75
 height = 780.0
 
 [node name="coinCollect" type="Area2D" parent="." groups=["coins"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coinCollect"]
 position = Vector2(4, -85)
@@ -88,5 +94,8 @@ shape = SubResource("CircleShape2D_avcxb")
 [node name="coinAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_urnff")
 volume_db = 12.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_6d86s")
 
 [connection signal="body_entered" from="coinCollect" to="." method="_on_coin_collect_body_entered"]
