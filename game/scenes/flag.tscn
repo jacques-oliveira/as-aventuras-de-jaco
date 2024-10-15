@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://bl68v7b22gq0q"]
 
-[ext_resource type="Texture2D" uid="uid://d0isvukpt4vwj" path="res://textures/enemys/flag/frame0000.png" id="1_la2dr"]
-[ext_resource type="Texture2D" uid="uid://bsxhseu7gmjcr" path="res://textures/enemys/flag/frame0001.png" id="2_o40lf"]
-[ext_resource type="Texture2D" uid="uid://c7g1ify0qd5xa" path="res://textures/enemys/flag/frame0002.png" id="3_32ccg"]
-[ext_resource type="Texture2D" uid="uid://bcwjjrnkc5uw1" path="res://textures/enemys/flag/frame0003.png" id="4_bylqn"]
-[ext_resource type="Texture2D" uid="uid://dmtswheictusg" path="res://textures/enemys/flag/frame0004.png" id="5_3f2mn"]
-[ext_resource type="Texture2D" uid="uid://fgh0lr21ovhf" path="res://textures/enemys/flag/frame0005.png" id="6_yl0v1"]
-[ext_resource type="Texture2D" uid="uid://f4h24sg52jee" path="res://textures/enemys/flag/frame0006.png" id="7_fl4my"]
-[ext_resource type="Texture2D" uid="uid://voy685q5ebia" path="res://textures/enemys/flag/frame0007.png" id="8_a6lrp"]
+[ext_resource type="Texture2D" uid="uid://d0isvukpt4vwj" path="res://textures/flag/frame0000.png" id="1_la2dr"]
+[ext_resource type="Texture2D" uid="uid://bsxhseu7gmjcr" path="res://textures/flag/frame0001.png" id="2_o40lf"]
+[ext_resource type="Texture2D" uid="uid://c7g1ify0qd5xa" path="res://textures/flag/frame0002.png" id="3_32ccg"]
+[ext_resource type="Texture2D" uid="uid://bcwjjrnkc5uw1" path="res://textures/flag/frame0003.png" id="4_bylqn"]
+[ext_resource type="Texture2D" uid="uid://dmtswheictusg" path="res://textures/flag/frame0004.png" id="5_3f2mn"]
+[ext_resource type="Texture2D" uid="uid://fgh0lr21ovhf" path="res://textures/flag/frame0005.png" id="6_yl0v1"]
+[ext_resource type="Texture2D" uid="uid://f4h24sg52jee" path="res://textures/flag/frame0006.png" id="7_fl4my"]
+[ext_resource type="Texture2D" uid="uid://voy685q5ebia" path="res://textures/flag/frame0007.png" id="8_a6lrp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fx22"]
 animations = [{

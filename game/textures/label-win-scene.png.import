@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f4h24sg52jee"
-path="res://.godot/imported/frame0006.png-f42aaef3e5a2319cbb62f22c4146ad2d.ctex"
+uid="uid://cn1ol72elisof"
+path="res://.godot/imported/label-win-scene.png-4b966a00c996552c99e3d18549d7129b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/enemys/flag/frame0006.png"
-dest_files=["res://.godot/imported/frame0006.png-f42aaef3e5a2319cbb62f22c4146ad2d.ctex"]
+source_file="res://textures/label-win-scene.png"
+dest_files=["res://.godot/imported/label-win-scene.png-4b966a00c996552c99e3d18549d7129b.ctex"]
 
 [params]
 
