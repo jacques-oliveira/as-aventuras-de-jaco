@@ -48,12 +48,12 @@
 [ext_resource type="Texture2D" uid="uid://2rlgylhtl7xj" path="res://textures/portal/portal-roxo0008.png" id="29_r8pqj"]
 [ext_resource type="PackedScene" uid="uid://cntvy2x3iin6x" path="res://scenes/fruit_enemy_pineapple.tscn" id="30_6jo6m"]
 [ext_resource type="PackedScene" uid="uid://bn2px13fso85c" path="res://scenes/hearts_container.tscn" id="31_0pmui"]
-[ext_resource type="PackedScene" uid="uid://cx2e1c7e2ajua" path="res://scenes/wood_ground.tscn" id="41_xqlbe"]
 [ext_resource type="Texture2D" uid="uid://bp84d523ks3su" path="res://textures/Jaco_sprite_head.png" id="49_qxo1l"]
 [ext_resource type="FontFile" uid="uid://8h5dsq8nk7ts" path="res://FONTS/SuperMario256.ttf" id="50_a73t3"]
 [ext_resource type="PackedScene" uid="uid://bl68v7b22gq0q" path="res://scenes/flag.tscn" id="50_kfhjf"]
 [ext_resource type="Texture2D" uid="uid://dakhnxopavssg" path="res://textures/coin/coin-gui.png" id="51_4s7x3"]
 [ext_resource type="PackedScene" uid="uid://dhsiu065c8j2r" path="res://coin.tscn" id="51_xdy5o"]
+[ext_resource type="PackedScene" uid="uid://ck8p31wda2and" path="res://wood_fence.tscn" id="54_lke35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hixir"]
 texture = ExtResource("1_um3hj")
@@ -661,7 +661,7 @@ tile_set = SubResource("TileSet_10tsx")
 
 [node name="Player" parent="TileMap" instance=ExtResource("2_ve5sw")]
 position = Vector2(-522, 481)
-collision_mask = 11
+collision_mask = 75
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 zoom = Vector2(0.5, 0.5)
@@ -679,6 +679,9 @@ frame_progress = 0.0
 
 [node name="fruit-enemy-pineapple2" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
 position = Vector2(81, 700)
+
+[node name="fruit-enemy-pineapple5" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
+position = Vector2(850, -1169)
 
 [node name="fruit-enemy-pineapple3" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
 position = Vector2(-827, 1544)
@@ -895,27 +898,11 @@ position = Vector2(-696, -560)
 [node name="Coin13" parent="TileMap/Coins" instance=ExtResource("51_xdy5o")]
 position = Vector2(-696, -828)
 
-[node name="FenceWood" type="Node2D" parent="."]
-
-[node name="WoodGround" parent="FenceWood" instance=ExtResource("41_xqlbe")]
-position = Vector2(1120, -1342)
-scale = Vector2(2, 2.9)
-collision_mask = 0
-
-[node name="WoodGround2" parent="FenceWood" instance=ExtResource("41_xqlbe")]
-position = Vector2(1120, -1239)
-scale = Vector2(2, 2.9)
-
-[node name="WoodGround3" parent="FenceWood" instance=ExtResource("41_xqlbe")]
-position = Vector2(1120, -1158)
-scale = Vector2(2, 2.9)
-
-[node name="WoodGround4" parent="FenceWood" instance=ExtResource("41_xqlbe")]
-position = Vector2(1120, -1069)
-scale = Vector2(2, 2.9)
-
 [node name="Flag" parent="." instance=ExtResource("50_kfhjf")]
 position = Vector2(-585, 10)
+
+[node name="WoodFence" parent="." instance=ExtResource("54_lke35")]
+position = Vector2(1119, -1296)
 
 [editable path="TileMap/enemies/fruit-enemy-pineapple"]
 [editable path="TileMap/enemies/fruit-enemy-pineapple4"]

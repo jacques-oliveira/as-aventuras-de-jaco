@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dthfsffy7x2d"]
+[gd_scene load_steps=12 format=3 uid="uid://dthfsffy7x2d"]
 
 [ext_resource type="Script" path="res://win_scene.gd" id="1_jwf7k"]
 [ext_resource type="Texture2D" uid="uid://dakhnxopavssg" path="res://textures/coin/coin-gui.png" id="1_tx532"]
@@ -8,6 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://cn1ol72elisof" path="res://textures/label-win-scene.png" id="5_pdfey"]
 [ext_resource type="PackedScene" uid="uid://dw43mqef884px" path="res://big_flag.tscn" id="6_c18af"]
 [ext_resource type="AudioStream" uid="uid://bq5dtwquuq08p" path="res://audio/happy-birthday-acoustic.mp3" id="8_spfeu"]
+[ext_resource type="Texture2D" uid="uid://3huxuh1ad4n5" path="res://textures/Jaco_sprite.png" id="9_77cll"]
+[ext_resource type="Texture2D" uid="uid://rmalwphmsuyn" path="res://textures/coin/star.png" id="10_oh1cp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_esdw7"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+angle_min = -442.4
+angle_max = 528.2
+inherit_velocity_ratio = 0.165
+spread = 180.0
+angular_velocity_min = -94.6
+angular_velocity_max = 20.87
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.125
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 678.16
+gravity = Vector3(0, 45, 0)
+linear_accel_min = -13.17
+linear_accel_max = 55.17
+scale_min = 0.2
+scale_over_velocity_min = 0.05
+scale_over_velocity_max = 1.0
+color = Color(1, 0.659151, 0.0853035, 1)
+hue_variation_min = 0.12
+hue_variation_max = 0.15
 
 [node name="WinScene" type="Control"]
 layout_mode = 3
@@ -166,3 +193,25 @@ stream = ExtResource("8_spfeu")
 volume_db = 10.0
 autoplay = true
 parameters/looping = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = -61.0
+offset_right = 657.0
+offset_bottom = 515.0
+grow_vertical = 2
+scale = Vector2(0.394, 0.394)
+texture = ExtResource("9_77cll")
+stretch_mode = 4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+use_parent_material = true
+position = Vector2(481, 271)
+scale = Vector2(0.1, 0.1)
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_esdw7")
+texture = ExtResource("10_oh1cp")
