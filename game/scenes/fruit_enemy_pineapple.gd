@@ -46,7 +46,6 @@ func _on_enemy_damage_body_entered(body: Node2D) -> void:
 			emenyDeathSound.play()
 			await get_tree().create_timer(0.4).timeout
 			GameManager.enemyiesOnScene-= 1
-			print_debug(GameManager.enemyiesOnScene)
 			if GameManager.enemyiesOnScene <= 0 :
 				GameManager._on_received_enemy_info(true)			
 			queue_free()			
