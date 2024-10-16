@@ -1,6 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://55u3x8ohd2xx"]
+[gd_scene load_steps=8 format=3 uid="uid://55u3x8ohd2xx"]
 
 [ext_resource type="Texture2D" uid="uid://cbbmxtfa52wa" path="res://vovo.png" id="1_glgo7"]
+[ext_resource type="FontFile" uid="uid://bow7vgdvhqick" path="res://FONTS/Born2bSportyFS.otf" id="2_gh183"]
+
+[sub_resource type="GDScript" id="GDScript_dpkwu"]
+script/source = "extends CharacterBody2D
+
+# Variáveis de controle
+var full_text = \"\"         # Texto completo a ser exibido
+var current_text = \"\"      # Texto atual que está sendo exibido
+var char_index = 0         # Índice do caractere atual
+var text_index = 0
+var dialogo = [\"JACÓZIN, VOCÊ POR AQUI TAMBÉM ! \", 
+				\"OS PORTAIS SÃO A SAÍDA !\", 
+				\"MAS AQUELA CERCA DE MADEIRA SEMPRE ME IMPEDE DE SAIR.\",
+				\"LEMBRO QUE QUANDO NÃO TEM INIMIGOS ELA NÃO ESTÁ AQUI . . .\"]
+
+# Velocidade do texto (em segundos)
+@export var text_speed = 0.075
+
+# Referências aos nós
+@onready var label = $Control/MarginContainer/MarginContainer/Panel/Label
+@onready var timer = $Timer
+
+func _ready() -> void:
+	await get_tree().create_timer(1).timeout
+	start_dialog()
+# Inicia a exibição do texto
+func start_dialog():
+	if text_index < dialogo.size():
+		current_text = \"\"
+		char_index = 0
+		label.text = current_text
+		timer.start(text_speed)
+
+# Este método é chamado a cada vez que o timer dispara
+func _on_timer_timeout() -> void:
+	var full_text = dialogo[text_index]
+	if char_index < full_text.length():
+		current_text += full_text[char_index]
+		label.text = current_text
+		char_index += 1	
+	else:
+		timer.stop()  # Para o Timer quando o texto termina
+		text_index += 1  # Avança para o próximo texto
+		# Adiciona um pequeno atraso antes de iniciar o próximo texto
+		await get_tree().create_timer(5.0).timeout
+		start_dialog()  # Chama a exibição do próximo texto
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkv45"]
 radius = 139.0
@@ -9,7 +56,28 @@ height = 514.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6y2xg"]
 radius = 433.074
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_087hm"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eehom"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
 [node name="vovo" type="CharacterBody2D"]
+script = SubResource("GDScript_dpkwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -330)
@@ -27,3 +95,49 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-11, -314)
 shape = SubResource("CircleShape2D_6y2xg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -996.0
+offset_top = -951.0
+offset_right = -956.0
+offset_bottom = -911.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_left = -56.0
+offset_top = 28.0
+offset_right = 864.0
+offset_bottom = 308.0
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_087hm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eehom")
+
+[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_gh183")
+theme_override_font_sizes/font_size = 65
+autowrap_mode = 3
+justification_flags = 171
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
