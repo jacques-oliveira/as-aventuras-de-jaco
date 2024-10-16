@@ -103,6 +103,8 @@ frame = 7
 frame_progress = 0.449593
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(20, -74)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s1w70")

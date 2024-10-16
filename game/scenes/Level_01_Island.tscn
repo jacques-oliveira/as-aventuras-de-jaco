@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bve6ef2d5uxyl"]
+[gd_scene load_steps=63 format=4 uid="uid://bve6ef2d5uxyl"]
 
 [ext_resource type="Script" path="res://scenes/level_01_island.gd" id="1_6ybfh"]
 [ext_resource type="Texture2D" uid="uid://ded3jhimygqhv" path="res://textures/level01_island/forest.png" id="1_um3hj"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://drbvdh6al0mi3" path="res://textures/portal/portal-amarelo0007.png" id="12_xy12p"]
 [ext_resource type="Texture2D" uid="uid://dro251hmlmpv" path="res://textures/portal/portal-amarelo0008.png" id="13_8ngkb"]
 [ext_resource type="Texture2D" uid="uid://jsao06qiw0d4" path="res://textures/portal/portal-vermelho0008.png" id="13_r5dnd"]
+[ext_resource type="PackedScene" uid="uid://55u3x8ohd2xx" path="res://vovo.tscn" id="13_v548g"]
 [ext_resource type="Texture2D" uid="uid://dyavj8ea2880l" path="res://textures/portal/portal-roxo0001.png" id="22_g627s"]
 [ext_resource type="Texture2D" uid="uid://b70m5ttgr3d61" path="res://textures/portal/portal-roxo0002.png" id="23_ckp5n"]
 [ext_resource type="Texture2D" uid="uid://bjr03h5m63e38" path="res://textures/portal/portal-roxo0003.png" id="24_jklv2"]
@@ -903,6 +904,10 @@ position = Vector2(-585, 10)
 
 [node name="WoodFence" parent="." instance=ExtResource("54_lke35")]
 position = Vector2(1119, -1296)
+
+[node name="vovo" parent="." instance=ExtResource("13_v548g")]
+position = Vector2(1203, -556)
+scale = Vector2(0.5, 0.5)
 
 [editable path="TileMap/enemies/fruit-enemy-pineapple"]
 [editable path="TileMap/enemies/fruit-enemy-pineapple4"]

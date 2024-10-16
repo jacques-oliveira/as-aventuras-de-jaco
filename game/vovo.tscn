@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://55u3x8ohd2xx"]
+
+[ext_resource type="Texture2D" uid="uid://cbbmxtfa52wa" path="res://vovo.png" id="1_glgo7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkv45"]
+radius = 94.0
+height = 260.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6y2xg"]
+radius = 433.074
+
+[node name="vovo" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -330)
+texture = ExtResource("1_glgo7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-42, -90)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tkv45")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-11, -314)
+shape = SubResource("CircleShape2D_6y2xg")
