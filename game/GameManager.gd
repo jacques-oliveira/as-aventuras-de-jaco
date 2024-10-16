@@ -9,6 +9,5 @@ func _ready() -> void:
 	enemyiesOnScene = 0
 
 func _on_received_enemy_info(canDisable:bool) -> void:
-	print_debug("teste")
 	if canDisable:
 		emit_signal("disableWoodFence", canDisable)

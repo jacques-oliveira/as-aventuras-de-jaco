@@ -10,7 +10,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
 	enemyLife = 5
 	effects.play("RESET")
-	
+
 func _physics_process(delta: float) -> void:
 	if player_chase && player.is_in_group("player") :
 		position += (player.position - position)/speed
@@ -45,6 +45,8 @@ func _on_enemy_damage_body_entered(body: Node2D) -> void:
 		if enemyLife <= 0:
 			emenyDeathSound.play()
 			await get_tree().create_timer(0.4).timeout
-			GameManager.enemyDead -= 1
-			queue_free()
-			
+			GameManager.enemyiesOnScene-= 1
+			print_debug(GameManager.enemyiesOnScene)
+			if GameManager.enemyiesOnScene <= 0 :
+				GameManager._on_received_enemy_info(true)			
+			queue_free()			
