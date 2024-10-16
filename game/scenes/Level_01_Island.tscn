@@ -662,7 +662,7 @@ tile_set = SubResource("TileSet_10tsx")
 
 [node name="Player" parent="TileMap" instance=ExtResource("2_ve5sw")]
 position = Vector2(-522, 481)
-collision_mask = 75
+collision_mask = 203
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 zoom = Vector2(0.5, 0.5)
@@ -908,6 +908,7 @@ position = Vector2(1119, -1296)
 [node name="vovo" parent="." instance=ExtResource("13_v548g")]
 position = Vector2(-34, 522)
 scale = Vector2(0.5, 0.5)
+collision_layer = 128
 
 [editable path="TileMap/enemies/fruit-enemy-pineapple"]
 [editable path="TileMap/enemies/fruit-enemy-pineapple4"]

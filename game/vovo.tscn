@@ -6,27 +6,25 @@
 [sub_resource type="GDScript" id="GDScript_dpkwu"]
 script/source = "extends CharacterBody2D
 
-# Variáveis de controle
-var full_text = \"\"         # Texto completo a ser exibido
-var current_text = \"\"      # Texto atual que está sendo exibido
-var char_index = 0         # Índice do caractere atual
+var full_text = \"\"         
+var current_text = \"\"      
+var char_index = 0         
 var text_index = 0
 var dialogo = [\"JACÓZIN, VOCÊ POR AQUI TAMBÉM ! \", 
 				\"OS PORTAIS SÃO A SAÍDA !\", 
 				\"MAS AQUELA CERCA DE MADEIRA SEMPRE ME IMPEDE DE SAIR.\",
 				\"LEMBRO QUE QUANDO NÃO TEM INIMIGOS ELA NÃO ESTÁ AQUI . . .\"]
 
-# Velocidade do texto (em segundos)
 @export var text_speed = 0.075
 
 # Referências aos nós
 @onready var label = $Control/MarginContainer/MarginContainer/Panel/Label
 @onready var timer = $Timer
+@onready var dialogBox = $Control/MarginContainer
 
 func _ready() -> void:
-	await get_tree().create_timer(1).timeout
-	start_dialog()
-# Inicia a exibição do texto
+	dialogBox.visible = false
+	
 func start_dialog():
 	if text_index < dialogo.size():
 		current_text = \"\"
@@ -34,7 +32,6 @@ func start_dialog():
 		label.text = current_text
 		timer.start(text_speed)
 
-# Este método é chamado a cada vez que o timer dispara
 func _on_timer_timeout() -> void:
 	var full_text = dialogo[text_index]
 	if char_index < full_text.length():
@@ -42,11 +39,27 @@ func _on_timer_timeout() -> void:
 		label.text = current_text
 		char_index += 1	
 	else:
-		timer.stop()  # Para o Timer quando o texto termina
-		text_index += 1  # Avança para o próximo texto
-		# Adiciona um pequeno atraso antes de iniciar o próximo texto
+		timer.stop()  
+		text_index += 1  
 		await get_tree().create_timer(5.0).timeout
-		start_dialog()  # Chama a exibição do próximo texto
+		start_dialog()  
+
+func _on_area_diaologo_body_entered(body: Node2D) -> void:
+	
+	dialogBox.visible = true
+	start_dialog()
+
+
+func _on_area_diaologo_body_exited(body: Node2D) -> void:
+	reset_dialog()	
+
+func reset_dialog():
+	current_text = \"\"
+	char_index = 0
+	text_index = 0
+	label.text = \"\"
+	dialogBox.visible = false
+	timer.stop()
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkv45"]
@@ -54,7 +67,7 @@ radius = 139.0
 height = 514.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6y2xg"]
-radius = 433.074
+radius = 534.034
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_087hm"]
 content_margin_left = 10.0
@@ -87,10 +100,10 @@ texture = ExtResource("1_glgo7")
 position = Vector2(-37, -253)
 shape = SubResource("CapsuleShape2D_tkv45")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="areaDiaologo" type="Area2D" parent="."]
+collision_layer = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaDiaologo"]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-11, -314)
@@ -105,6 +118,7 @@ offset_right = -956.0
 offset_bottom = -911.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
+visible = false
 layout_mode = 1
 offset_left = -56.0
 offset_top = 28.0
@@ -139,5 +153,8 @@ autowrap_mode = 3
 justification_flags = 171
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
+[connection signal="body_entered" from="areaDiaologo" to="." method="_on_area_diaologo_body_entered"]
+[connection signal="body_exited" from="areaDiaologo" to="." method="_on_area_diaologo_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
