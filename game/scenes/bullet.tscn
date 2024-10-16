@@ -1,7 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://vgnhkjeu7ans"]
+[gd_scene load_steps=13 format=3 uid="uid://vgnhkjeu7ans"]
 
-[ext_resource type="Texture2D" uid="uid://0v0np58n6dcm" path="res://player/bulletSprite.png" id="1_8vov7"]
 [ext_resource type="Script" path="res://scenes/bullet.gd" id="1_rmx4b"]
+[ext_resource type="Texture2D" uid="uid://dhayw8xrgidrc" path="res://player/bullet/frame0000.png" id="2_nji2a"]
+[ext_resource type="Texture2D" uid="uid://dpr7qoxe1fnce" path="res://player/bullet/frame0001.png" id="3_sus65"]
+[ext_resource type="Texture2D" uid="uid://dggteb7vk3qhw" path="res://player/bullet/frame0002.png" id="4_s88v7"]
+[ext_resource type="Texture2D" uid="uid://b58dtojs2bfte" path="res://player/bullet/frame0003.png" id="5_vp0tg"]
+[ext_resource type="Texture2D" uid="uid://bmvjte5j0yxr3" path="res://player/bullet/frame0004.png" id="6_o36q3"]
+[ext_resource type="Texture2D" uid="uid://bkvxyxwbecgys" path="res://player/bullet/frame0005.png" id="7_ysgjj"]
+[ext_resource type="Texture2D" uid="uid://p4pxeotjeoxa" path="res://player/bullet/frame0006.png" id="8_pfyob"]
+[ext_resource type="Texture2D" uid="uid://yjpfdrlpefqq" path="res://player/bullet/frame0007.png" id="9_86ik0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_brj6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nji2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sus65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s88v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vp0tg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o36q3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ysgjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pfyob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_86ik0")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 4.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5bhid"]
 radius = 13.0
@@ -16,20 +55,24 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_rmx4b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.35, 0.5)
-texture = ExtResource("1_8vov7")
+sprite_frames = SubResource("SpriteFrames_brj6a")
+animation = &"fire"
+speed_scale = 7.0
 
 [node name="bulletArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bulletArea"]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5bhid")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fmnwo")
 
