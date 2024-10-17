@@ -14,6 +14,7 @@ config/name="as-aventuras-de-jaco"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://textures/icons/game-icon.png"
+config/windows_native_icon="res://textures/icons/game-icon.png"
 
 [autoload]
 
