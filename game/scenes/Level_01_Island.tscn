@@ -684,6 +684,9 @@ position = Vector2(81, 700)
 [node name="fruit-enemy-pineapple5" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
 position = Vector2(850, -1169)
 
+[node name="fruit-enemy-pineapple6" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
+position = Vector2(-329, -1038)
+
 [node name="fruit-enemy-pineapple3" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
 position = Vector2(-827, 1544)
 
@@ -692,6 +695,24 @@ z_index = 0
 position = Vector2(-579, -810)
 
 [node name="AnimatedSprite2D" parent="TileMap/enemies/fruit-enemy-pineapple4" index="0"]
+sprite_frames = SubResource("SpriteFrames_d0wsk")
+animation = &"walk"
+frame_progress = 0.0
+
+[node name="fruit-enemy-pineapple8" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
+z_index = 0
+position = Vector2(-389, 1965)
+
+[node name="AnimatedSprite2D" parent="TileMap/enemies/fruit-enemy-pineapple8" index="0"]
+sprite_frames = SubResource("SpriteFrames_d0wsk")
+animation = &"walk"
+frame_progress = 0.0
+
+[node name="fruit-enemy-pineapple7" parent="TileMap/enemies" instance=ExtResource("30_6jo6m")]
+z_index = 0
+position = Vector2(613, 538)
+
+[node name="AnimatedSprite2D" parent="TileMap/enemies/fruit-enemy-pineapple7" index="0"]
 sprite_frames = SubResource("SpriteFrames_d0wsk")
 animation = &"walk"
 frame_progress = 0.0
@@ -912,6 +933,8 @@ collision_layer = 128
 
 [editable path="TileMap/enemies/fruit-enemy-pineapple"]
 [editable path="TileMap/enemies/fruit-enemy-pineapple4"]
+[editable path="TileMap/enemies/fruit-enemy-pineapple8"]
+[editable path="TileMap/enemies/fruit-enemy-pineapple7"]
 [editable path="TileMap/portals/portal2"]
 [editable path="TileMap/portals/portal3"]
 [editable path="TileMap/portals/portal4"]
