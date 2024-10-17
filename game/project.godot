@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="as-aventuras-de-jaco"
-run/main_scene="res://scenes/Level_01_Island.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://scenes/icon.svg"
+config/icon="res://textures/icons/game-icon.png"
 
 [autoload]
 
@@ -26,6 +26,7 @@ window/size/viewport_height=540
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 

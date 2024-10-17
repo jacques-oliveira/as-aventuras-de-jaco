@@ -12,8 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://7wcukbui8wm" path="res://audio/scifi-anime-whoosh-97-183890.mp3" id="10_ewdut"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1bv3"]
-radius = 33.1395
-height = 95.3488
+radius = 35.4651
+height = 87.2093
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_upkk4"]
 animations = [{
@@ -65,7 +65,7 @@ collision_layer = 5
 script = ExtResource("1_ekuoo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+rotation = 1.5708
 scale = Vector2(1.72, 2.04)
 shape = SubResource("CapsuleShape2D_q1bv3")
 
