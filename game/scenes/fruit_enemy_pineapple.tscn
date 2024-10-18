@@ -158,6 +158,10 @@ libraries = {
 "": SubResource("AnimationLibrary_axidl")
 }
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, -117)
+scale = Vector2(11.5, 11.6)
+
 [connection signal="body_entered" from="enemy_damage" to="." method="_on_enemy_damage_body_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
