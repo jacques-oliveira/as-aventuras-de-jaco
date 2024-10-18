@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 		selectBtnExit.visible = true
 		selectedButton = 1
 		selectAudioButton.play()
-	elif event.is_action("ui_select"):
+	elif event.is_action("ui_select") || event.is_action("ui_accept"):
 		#buttons[selectedButton].press()
 		match (selectedButton):
 			0:
