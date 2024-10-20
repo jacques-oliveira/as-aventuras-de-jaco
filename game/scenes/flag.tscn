@@ -45,8 +45,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhmux"]
-radius = 42.0
-height = 124.0
+radius = 77.0
+height = 160.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_psom3"]
 
