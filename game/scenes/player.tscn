@@ -240,7 +240,7 @@ script = ExtResource("1_nxjp1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_cr3o1")
-animation = &"idle_down"
+animation = &"walk_down"
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 offset_left = -294.0

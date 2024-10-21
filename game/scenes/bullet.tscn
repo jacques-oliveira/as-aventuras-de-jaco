@@ -60,6 +60,9 @@ rotation = 1.5708
 scale = Vector2(0.35, 0.5)
 sprite_frames = SubResource("SpriteFrames_brj6a")
 animation = &"fire"
+autoplay = "fire"
+frame = 7
+frame_progress = 1.0
 speed_scale = 7.0
 
 [node name="bulletArea" type="Area2D" parent="."]
