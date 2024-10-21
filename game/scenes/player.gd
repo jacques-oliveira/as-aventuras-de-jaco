@@ -98,7 +98,7 @@ func shoot():
 	get_parent().add_child(bullet)
 	var speed = 1500.0
 	if animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle_right":
-		bullet.setVelocity(speed,0)
+		bullet.setVelocity(speed,PI)
 		bullet.position = $shootPointWR.global_position	
 	elif animatedSprite.animation == "walk_down" || animatedSprite.animation == "idle_down":
 		bullet.setVelocity(0,speed)
