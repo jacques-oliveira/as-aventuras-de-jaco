@@ -16,12 +16,16 @@ var canShoot = true
 var directionWalk = 0
 var lastDirectionX
 var lastDirectionY
+var stateDown:bool
+var stateUp:bool
+var stateRight:bool
+var stateLeft:bool
 
 func _ready() -> void:
 	effects.play("RESET")
 	lastDirectionX = 1
 func _physics_process(delta):
-
+	setStates()
 #	variables direction
 	var directionx = Input.get_axis("ui_left", "ui_right")
 	var directiony = Input.get_axis("ui_up", "ui_down")
@@ -97,18 +101,19 @@ func shoot():
 	var bullet =bulletTscn.instantiate()
 	get_parent().add_child(bullet)
 	var speed = 1500.0
-	if animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle_right":
+	if stateRight:
+		bullet.global_rotation = 0
 		bullet.setVelocity(speed,0)
 		bullet.position = $shootPointWR.global_position	
-	elif animatedSprite.animation == "walk_down" || animatedSprite.animation == "idle_down":
+	elif stateDown:
 		bullet.setVelocity(0,speed)
 		bullet.global_rotation = PI/2
 		bullet.position = $shootPointDOWN.global_position	
-	elif animatedSprite.animation == "walk_left" || animatedSprite.animation == "idle_left":
+	elif stateLeft:
 		bullet.setVelocity(lastDirectionX*speed,0)
 		bullet.global_rotation = PI
 		bullet.position = $shootPointWL.global_position	
-	elif animatedSprite.animation == "walk_up" || animatedSprite.animation == "idle_up":
+	elif stateUp:
 		bullet.setVelocity(0,-speed)
 		bullet.global_rotation = 3*PI/2
 		bullet.position = $shootPointUP.global_position	
@@ -123,3 +128,9 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("fire") and canShoot:
 		shoot()
 		shotLaserSound.play()
+
+func setStates()-> void:
+	stateUp = animatedSprite.animation == "walk_up" || animatedSprite.animation == "idle_up"
+	stateDown = animatedSprite.animation == "walk_down" || animatedSprite.animation == "idle_down"
+	stateRight = animatedSprite.animation == "walk_right" || animatedSprite.animation == "idle_right"
+	stateLeft = animatedSprite.animation == "walk_left" || animatedSprite.animation == "idle_left"
