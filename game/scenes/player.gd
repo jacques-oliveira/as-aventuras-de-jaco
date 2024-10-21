@@ -110,7 +110,7 @@ func shoot():
 		bullet.position = $shootPointUP.global_position	
 	elif animatedSprite.animation == "walk_left" || animatedSprite.animation == "idle_left":
 		bullet.setVelocity(lastDirectionX*speed,0)
-		bullet.global_rotation = PI
+		bullet.global_rotation = -PI
 		bullet.position = $shootPointWL.global_position	
 	else:
 		return
