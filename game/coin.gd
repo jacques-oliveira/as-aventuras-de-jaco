@@ -8,7 +8,6 @@ func _ready() -> void:
 	particle.emitting = false
 	
 func _on_coin_collect_body_entered(body: Node2D) -> void:
-	#print_debug("Coin collide" + body.name)
 	if body.is_in_group("player"):
 		coinAudio.play()
 		emit_signal("coinCollected")
