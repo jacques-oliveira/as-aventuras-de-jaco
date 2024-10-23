@@ -22,3 +22,7 @@ um paralelo com o mundo real, a fim de contribuir com seu crescimento e desenvol
 
 ## Publicação tema do Game
 [Video com a visão geral do Game](https://www.linkedin.com/posts/jacques-oliveira-95677452_fala-pessoal-seguindo-a-publica%C3%A7%C3%A3o-anterior-activity-7253838012755681280-rw7M?utm_source=share&utm_medium=member_desktop)
+
+## Desenvolvimento
+O game é desenvolvido inteiramente usando a engine Godot, com linguagem GDScript.
+Os Assets são criados com blender, krita e inkscape, todos são ferramentas open-source gratuitas.
