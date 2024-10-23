@@ -19,3 +19,6 @@ dos sábios e pessoas espalhadas no seu mundo.
 ## Tema Educativo
 A ideia é que o player aprenda e aplique seus conhecimentos durante toda a aventura, fazendo
 um paralelo com o mundo real, a fim de contribuir com seu crescimento e desenvolvimento.
+
+## Publicação tema do Game
+[Video com a visão geral do Game](https://www.linkedin.com/posts/jacques-oliveira-95677452_fala-pessoal-seguindo-a-publica%C3%A7%C3%A3o-anterior-activity-7253838012755681280-rw7M?utm_source=share&utm_medium=member_desktop)
