@@ -7,15 +7,15 @@ extends CharacterBody2D
 @onready var shotLaserSound = $shotLaser
 @onready var hurtDamage = $hurtDamage
 
-const SPEED = 325.0
+const SPEED:float = 325.0
 signal healthChanged
 signal lostAllHearts
 var startPosition = Vector2(-522,481)
 var bulletTscn = preload("res://scenes/bullet.tscn")
-var canShoot = true
-var directionWalk = 0
-var lastDirectionX
-var lastDirectionY
+var canShoot:bool = true
+var directionWalk:int = 0
+var lastDirectionX:int
+var lastDirectionY:int
 var stateDown:bool
 var stateUp:bool
 var stateRight:bool
@@ -24,12 +24,13 @@ var stateLeft:bool
 func _ready() -> void:
 	effects.play("RESET")
 	lastDirectionX = 1
+	
 func _physics_process(delta):
 	setStates()
-#	variables direction
+
 	var directionx = Input.get_axis("ui_left", "ui_right")
 	var directiony = Input.get_axis("ui_up", "ui_down")
-#	move character
+
 	if directionx:
 		velocity.x = directionx * SPEED
 		lastDirectionY = 0
