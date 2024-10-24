@@ -26,3 +26,10 @@ um paralelo com o mundo real, a fim de contribuir com seu crescimento e desenvol
 ## Desenvolvimento
 O game é desenvolvido inteiramente usando a engine Godot, com linguagem GDScript.
 Os Assets são criados com blender, krita e inkscape, todos são ferramentas open-source gratuitas.
+
+Godot versão 4.3
+
+## Criação de Assets
+  - Blender 4.3
+  - Krita 5.2.6
+  - Inkscape 1.3.2
